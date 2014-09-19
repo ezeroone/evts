@@ -1,0 +1,28 @@
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\GPSTracking.Domain.dll.config
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\GPSTracking.Domain.dll
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\GPSTracking.Domain.pdb
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.dll
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.SqlServer.dll
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.xml
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.SqlServer.xml
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\obj\Debug\GPSTracking.Domain.csprojResolveAssemblyReference.cache
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\obj\Debug\GPSTracking.Domain.dll
+H:\GPSTracking\GPSTracking\GPSTracking.Domain\obj\Debug\GPSTracking.Domain.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\GPSTracking.Domain.dll.config
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\GPSTracking.Domain.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\GPSTracking.Domain.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.SqlServer.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\EntityFramework.SqlServer.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\obj\Debug\GPSTracking.Domain.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\obj\Debug\GPSTracking.Domain.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Domain\obj\Debug\GPSTracking.Domain.csprojResolveAssemblyReference.cache

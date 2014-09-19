@@ -1,0 +1,126 @@
+H:\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.dll.config
+H:\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.pdb
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Antlr3.Runtime.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.SqlServer.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.Domain.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Core.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Owin.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Host.SystemWeb.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Cookies.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Facebook.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Google.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.OAuth.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Twitter.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Web.Infrastructure.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Newtonsoft.Json.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Owin.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Helpers.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Mvc.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Optimization.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Razor.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Deployment.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Razor.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\WebGrease.dll
+H:\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.Domain.pdb
+H:\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.SqlServer.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Core.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Helpers.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Mvc.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Optimization.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Razor.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Deployment.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Razor.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Newtonsoft.Json.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Antlr3.Runtime.pdb
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Owin.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Host.SystemWeb.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Facebook.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Cookies.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.OAuth.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Google.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Twitter.xml
+H:\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+H:\GPSTracking\GPSTracking\GPSTracking\obj\Debug\GPSTracking.csprojResolveAssemblyReference.cache
+H:\GPSTracking\GPSTracking\GPSTracking\obj\Debug\GPSTracking.dll
+H:\GPSTracking\GPSTracking\GPSTracking\obj\Debug\GPSTracking.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\obj\Debug\GPSTracking.csprojResolveAssemblyReference.cache
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.dll.config
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Antlr3.Runtime.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.SqlServer.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.Domain.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.Service.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Core.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Owin.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Host.SystemWeb.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Cookies.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Facebook.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Google.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.MicrosoftAccount.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.OAuth.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Twitter.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Web.Infrastructure.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Newtonsoft.Json.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Ninject.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Ninject.Web.Common.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Owin.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Net.Http.Formatting.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Helpers.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Http.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Http.WebHost.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Mvc.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Optimization.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Razor.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Deployment.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Razor.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\WebGrease.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.Domain.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\GPSTracking.Service.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\EntityFramework.SqlServer.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Core.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Ninject.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Ninject.Web.Common.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Net.Http.Formatting.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Http.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Http.WebHost.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Helpers.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Mvc.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Optimization.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.Razor.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Deployment.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\System.Web.WebPages.Razor.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Newtonsoft.Json.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Antlr3.Runtime.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Facebook.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Cookies.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.OAuth.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Google.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.Twitter.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\obj\Debug\GPSTracking.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking\obj\Debug\GPSTracking.pdb

@@ -1,0 +1,16 @@
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\GPSTracking.Service.dll.config
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\GPSTracking.Service.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\GPSTracking.Service.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\EntityFramework.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\EntityFramework.SqlServer.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\GPSTracking.Domain.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\GPSTracking.Domain.pdb
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\EntityFramework.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\EntityFramework.SqlServer.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\obj\Debug\GPSTracking.Service.csprojResolveAssemblyReference.cache
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\obj\Debug\GPSTracking.Service.dll
+E:\eZeroOneTech\My Live Projects\Projects\GPSTracking\GPSTracking\GPSTracking.Service\obj\Debug\GPSTracking.Service.pdb
