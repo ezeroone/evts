@@ -21,7 +21,7 @@ namespace GPSTracking.Controllers
     public class AccountController : Controller
     {
         private readonly IRepository _repository;
-        private readonly ICustomerService _customerService;
+        private readonly IOwnerService _customerService;
         private readonly IUnitOfWork  _unitOfWork;
         //private readonly GpsTrackingContext _context;
 
@@ -30,16 +30,16 @@ namespace GPSTracking.Controllers
             //_context = new GpsTrackingContext();
             _repository = repository;
             _unitOfWork = unitOfWork;
-            _customerService = new CustomerService(_repository, _unitOfWork);
-            
+            _customerService = new OwnerService(_repository, _unitOfWork);
+            UserManager = new UserManager<Profile>(new UserStore<Profile>(new GpsTrackingContext()));
         }
 
-        public AccountController(UserManager<ApplicationUser> userManager)
-        {
-            UserManager = userManager;
-        }
+        //public AccountController(UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>())
+        //{
+        //    UserManager = userManager;
+        //}
 
-        public UserManager<ApplicationUser> UserManager { get; private set; }
+        public UserManager<Profile> UserManager { get; private set; }
 
         //
         // GET: /Account/Login
@@ -80,10 +80,11 @@ namespace GPSTracking.Controllers
         [AllowAnonymous]
         public ActionResult Register()
         {
-            var countries = _customerService.AllCountries();
-
-            ViewBag.Counties = countries;
-            return View();
+            var model = new RegisterViewModel() 
+            {
+              AvailableCountries = _customerService.AllCountries().ToList()
+            };
+            return View(model);
         }
 
         //
@@ -95,29 +96,49 @@ namespace GPSTracking.Controllers
         {
             if (ModelState.IsValid)
             {
-                var owner = new Owner
+                var profile = new Profile()
                 {
-                    FirstName = model.FirstName,
-                    Email = model.UserName,
-                    Mobile = model.MobileNumber,
-                    CreatedDate = System.DateTime.UtcNow,
-                    IsDeleted = false,
-                    IsActive = true,
-
-                    //Country = country ?? null,
+                     UserName = model.UserName,
+                     FirstName = model.FirstName,
+                     CountryId = model.CountryId,
+                     CreatedDate = DateTime.Now,
+                     ModifiedDate = DateTime.Now
                 };
-                var user = new ApplicationUser() 
-                { 
-                    UserName = model.UserName,
-                    //Owner = owner,
-                };
-                var profile = new CreateNewProfileModel
+                var result = await UserManager.CreateAsync(profile, model.Password);
+                if (result.Succeeded)
                 {
-                    Profile = user,
-                    Password = model.Password
-                };
+                    await SignInAsync(profile, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
+                }
+                else
+                {
+                    AddErrors(result);
+                }
 
-               
+
+                //var owner = new Owner
+                //{
+                //    FirstName = model.FirstName,
+                //    Email = model.Email,
+                //    Mobile = model.MobileNumber,
+                //    CreatedDate = System.DateTime.UtcNow,
+                //    IsDeleted = false,
+                //    IsActive = true,
+
+                //    //Country = country ?? null,
+                //};
+                //var user = new ApplicationUser() 
+                //{ 
+                //    UserName = model.UserName,
+                //    //Owner = owner,
+                //};
+                //var profile = new CreateNewProfileModel
+                //{
+                //    Profile = user,
+                //    Password = model.Password
+                //};
+
+
                 //var country = _repository.All<Country>().FirstOrDefault(q => q.Id == model.Country);
                 //var result = await _repository.CreateNewProfile(profile);//.CreateAsync(user, model.Password);
                 //if (result.Status)
@@ -133,6 +154,8 @@ namespace GPSTracking.Controllers
                 //}
             }
 
+
+            model.AvailableCountries = _customerService.AllCountries().ToList();
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -307,7 +330,7 @@ namespace GPSTracking.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new ApplicationUser() { UserName = model.UserName };
+                var user = new Profile() { UserName = model.UserName };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
@@ -373,7 +396,7 @@ namespace GPSTracking.Controllers
             }
         }
 
-        private async Task SignInAsync(ApplicationUser user, bool isPersistent)
+        private async Task SignInAsync(Profile user, bool isPersistent)
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
             var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);

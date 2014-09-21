@@ -53,24 +53,32 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entities\ApplicationUser.cs" />
-    <Compile Include="Entities\Brand.cs" />
+    <Compile Include="Entities\VehicleBrand.cs" />
     <Compile Include="Entities\Country.cs" />
-    <Compile Include="Entities\Drive.cs" />
-    <Compile Include="Entities\ExteriorColor.cs" />
-    <Compile Include="Entities\Fuel.cs" />
-    <Compile Include="Entities\InteriorColor.cs" />
+    <Compile Include="Entities\Vehicle.cs" />
+    <Compile Include="Entities\VehicleDriveType.cs" />
+    <Compile Include="Entities\VechicleColor.cs" />
+    <Compile Include="Entities\VehicleFuelType.cs" />
     <Compile Include="Entities\Location.cs" />
-    <Compile Include="Entities\Model.cs" />
     <Compile Include="Entities\Owner.cs" />
     <Compile Include="Entities\PasswordResetToken.cs" />
     <Compile Include="Entities\PaymentType.cs" />
-    <Compile Include="Entities\Profile.cs" />
+    <Compile Include="Entities\Profile.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Entities\Region.cs" />
-    <Compile Include="Entities\Transmision.cs" />
+    <Compile Include="Entities\VehicleModel.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entities\VehicleTransmision.cs" />
     <Compile Include="Entities\VehicleCategory.cs" />
     <Compile Include="Entities\VehicleType.cs" />
     <Compile Include="GPSTrackingContext.cs" />
-    <Compile Include="Migrations\Migrations.cs" />
+    <Compile Include="Migrations\201409211315028_Login_Registration_AddVehicle.cs" />
+    <Compile Include="Migrations\201409211315028_Login_Registration_AddVehicle.Designer.cs">
+      <DependentUpon>201409211315028_Login_Registration_AddVehicle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
     <Compile Include="Repository\UnitOfWork.cs" />
@@ -82,7 +90,11 @@
     </None>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201409211315028_Login_Registration_AddVehicle.resx">
+      <DependentUpon>201409211315028_Login_Registration_AddVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

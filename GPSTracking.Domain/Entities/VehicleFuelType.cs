@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 namespace GPSTracking.Domain.Entities
 {
-    public class VehicleCategory
+    public class VehicleFuelType
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
@@ -14,6 +14,5 @@ namespace GPSTracking.Domain.Entities
 
 
         public virtual ICollection<Vehicle> Vehicles { get; set; }
-
     }
 }

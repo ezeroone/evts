@@ -60,13 +60,38 @@
         <div class="box">
             <h3>User login</h3>
             <div class="box-content clearfix">
-                <form action="#">
+
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.ValidationSummary()
+                    @Html.TextBoxFor(m => m.UserName, new { type = "text", placeholder = "Enter your email" })
+                    @Html.ValidationMessageFor(m => m.UserName)
+                    
+                    @Html.TextBoxFor(m => m.Password, new { type = "text", placeholder = "Enter your password" })
+                    @Html.ValidationMessageFor(m => m.Password)
+
+                    @*@Html.LabelFor(m => m.RememberMe, new { @class = "custom_checkbox remember_me" })
+                    @Html.CheckBoxFor(m => m.RememberMe)*@
+
+                     <p>
+    <label for="RememberMe" class="custom_checkbox remember_me">
+        @Html.CheckBoxFor(m => m.RememberMe) Remember me
+    </label>
+                         </p>
+
+                    <p class="centered_content">
+                        <input type="submit" class="button red right" value="Login" />
+                    </p>
+                }
+
+                @*<form action="#">
                     <input type="text" placeholder="Enter your email" name="email">
                     <input type="password" placeholder="Enter your password" name="pass">
-                    <label for="remember_me" class="custom_checkbox remember_me"><input type="checkbox" name="remember_me" id="remember_me">Remember me</label>
+                    <label for="remember_me" class="custom_checkbox remember_me">
+                    <input type="checkbox" name="remember_me" id="remember_me">Remember me</label>
                     <a class="button submit red right">Login</a>
-
-                </form>
+                </form>*@
             </div>
         </div>
 

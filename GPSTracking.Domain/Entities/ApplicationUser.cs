@@ -8,20 +8,20 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GPSTracking.Domain.Entities
 {
-    public class ApplicationUser : IdentityUser
-    {
-        public int UserId { get; set; }
+    //public class Profile : IdentityUser
+    //{
+    //    public int UserId { get; set; }
         
-        public override string UserName
-        {
-            set { Email = value; }
-            get { return Email; }
-        }
+    //    public override string UserName
+    //    {
+    //        set { Email = value; }
+    //        get { return Email; }
+    //    }
 
-        //[ForeignKey("Owner_Id")]
-        //public virtual Owner Owner { get; set; }
+    //    //[ForeignKey("Owner_Id")]
+    //    //public virtual Owner Owner { get; set; }
 
-    }
+    //}
 
     //var context = new RaspberryPi.Models.ApplicationDbContext();          
     //if (context.Users.Any(u => u.UserName == User.Identity.Name))

@@ -37,28 +37,55 @@
     </div>
 }*@
 
-<div class="container_12 clearfix ">
-    <div class="grid_8">
-        <div class="box">
-            <h3>Owner's info</h3>
-            <div class="box-content">
-                <form action="/Account/Register">
-                    <input type="text" placeholder="Enter your email" name="UserName">
-                    <input type="password" placeholder="Enter your password" name="Password">
-                    <input type="password" placeholder="Re-enter your password" name="ConfirmPassword">
-                    <input type="text" placeholder="Enter your name" name="FirstName">
-                    <input type="text" placeholder="Mobile No" name="MobileNumber">
-                    @Html.LabelFor(m => m.Country)
-                    <div class="col-md-10">
-                        @{
-                            var countries = (List<Country>) ViewBag.Counties;
-                        }
-                        @Html.DropDownListFor(m => m.Country, new SelectList(countries, "Id", "Name"))
-                    </div>
-                    @*<p class="smaller_margin"><label for="newsletter" class="custom_checkbox"><input type="checkbox" name="newsletter" id="newsletter"> Receive newsletter about updates and promotions.</label></p>*@
-                    <p><label for="terms" class="custom_checkbox"><input type="checkbox" name="terms" id="terms">I agree to your <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</label></p>
+@*@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {*@
+
+
+    <div class="container_12 clearfix ">
+        <div class="grid_8">
+            <div class="box">
+                <h3>Owner's info</h3>
+                <div class="box-content">
+
+                    @using(Html.BeginForm("Register", "Account", FormMethod.Post))
+                    {
+                       @Html.AntiForgeryToken()
+                        @Html.ValidationSummary()
+                        @Html.TextBoxFor(m => m.UserName, new { type = "text", placeholder = "Enter your email" })
+                         @Html.TextBoxFor(m => m.Password, new { type = "password", placeholder = "Enter your password" })
+                         @Html.TextBoxFor(m => m.ConfirmPassword, new { type = "password", placeholder = "Re-enter your password" })
+                         @Html.TextBoxFor(m => m.FirstName, new { type = "text", placeholder = "Enter your name" })
+                        @Html.TextBoxFor(m => m.MobileNumber, new { type = "text", placeholder = "Enter your Mobile Number" })
+
+                        @Html.DropDownListFor(m => m.CountryId, new SelectList(Model.AvailableCountries, "Id", "Name"), new { @class = "customSelectInner customSelect" })
+
+              
+                                                
+                        <p class="smaller_margin"><label for="newsletter" class="custom_checkbox"><input type="checkbox" name="newsletter" id="newsletter"> Receive newsletter about updates and promotions.</label></p>
+                        <p><label for="terms" class="custom_checkbox"><input type="checkbox" name="terms" id="terms">I agree to your <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</label></p>
+                        <p class="centered_content">
+                            @*<a class="button submit red" type="" >Create Account</a>*@
+                            <input type="submit" class="button submit red" value="Create Account" />
+                        </p>
+                    }
+
+                    @*<form action="/Account/Register">
+                        <input type="text" placeholder="Enter your email" name="UserName">
+                        <input type="password" placeholder="Enter your password" name="Password">
+                        <input type="password" placeholder="Re-enter your password" name="ConfirmPassword">
+                        <input type="text" placeholder="Enter your name" name="FirstName">
+                        <input type="text" placeholder="Mobile No" name="MobileNumber">
+                        @Html.LabelFor(m => m.Country)
+                        <div class="col-md-10">
+                            @{
+                                var countries = (List<Country>) ViewBag.Counties;
+                            }
+                            @Html.DropDownListFor(m => m.Country, new SelectList(countries, "Id", "Name"))
+                        </div>
+                        @*<p class="smaller_margin"><label for="newsletter" class="custom_checkbox"><input type="checkbox" name="newsletter" id="newsletter"> Receive newsletter about updates and promotions.</label></p>*@
+                    @*<p><label for="terms" class="custom_checkbox"><input type="checkbox" name="terms" id="terms">I agree to your <a href="#">terms of use</a> and <a href="#">privacy policy</a>.</label></p>
                     <p class="centered_content"><a class="button submit red">Create Account</a></p>
-                </form>
+                </form>*@
             </div>
         </div>
     </div>

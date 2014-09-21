@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using GPSTracking.Domain.Entities;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Security.Permissions;
 
 namespace GPSTracking.Models
@@ -31,8 +33,9 @@ namespace GPSTracking.Models
 
     public class LoginViewModel
     {
-        [Required]
+        [Required(ErrorMessage="Your Login user name or email is required.")]
         [Display(Name = "User name")]
+        [EmailAddress]
         public string UserName { get; set; }
 
         [Required]
@@ -46,9 +49,18 @@ namespace GPSTracking.Models
 
     public class RegisterViewModel
     {
-        [Required]
+        //[Required]
+        //[Display(Name = "User name")]
+        
+
+        [Required(AllowEmptyStrings=false)]
+        [EmailAddress]
         [Display(Name = "User name")]
         public string UserName { get; set; }
+
+
+        public string Email { get { return UserName; } set { UserName = value; } }
+
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -64,12 +76,20 @@ namespace GPSTracking.Models
         [Display(Name = "Mobile Number")]
         public string MobileNumber { get; set; }
 
-         [Display(Name = "First Name")]
+         
+        [Display(Name = "First Name")]
         public string FirstName { get; set; }
 
         public bool PhoneNumberConfirmed { get; set; }
+        
         public bool IsActive { get; set; }
 
-        public int Country { get; set; }
+         
+        [Required(ErrorMessage="Please specify a country")]
+        [Range(1, int.MaxValue)]
+        public int CountryId { get; set; }
+
+        public List<Country> AvailableCountries { get; set; }
+
     }
 }
