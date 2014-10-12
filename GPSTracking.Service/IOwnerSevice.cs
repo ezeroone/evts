@@ -25,6 +25,16 @@ namespace GPSTracking.Service
 
         bool AddUpdateVechile(Vehicle vehicle);
 
+
+        #region Vehicle Images
+
+        IEnumerable<VehicleImage> GetImages(int vehicleId);
+        VehicleImage GetImage(int imageId);
+        bool AddImage(VehicleImage model);
+        bool RemoveImage(int imageId);
+
+        #endregion
+
     }
 
 
@@ -116,5 +126,34 @@ namespace GPSTracking.Service
             return true;
         }
 
+
+
+        public IEnumerable<VehicleImage> GetImages(int vehicleId)
+        {
+            return _repository.All<VehicleImage>().Where(m => (m.VehicleId == vehicleId));
+        }
+
+        public VehicleImage GetImage(int imageId)
+        {
+            return _repository.All<VehicleImage>().FirstOrDefault(m => (m.Id == imageId));
+        }
+
+        public bool AddImage(VehicleImage model)
+        {
+            if (model == null) { return false; }
+            _repository.Add<VehicleImage>(model);
+            _unitOfWork.Save();
+            return true;
+        }
+
+        public bool RemoveImage(int imageId)
+        {
+            var dbmodel = GetImage(imageId);
+            if (dbmodel == null) { return false; }
+
+            _repository.Delete<VehicleImage>(dbmodel);
+            _unitOfWork.Save();
+            return true;
+        }
     }
 }

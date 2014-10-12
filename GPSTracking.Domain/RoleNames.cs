@@ -11,19 +11,19 @@ namespace GPSTracking.Domain
         /// <summary>
         /// Admin of the site and users
         /// </summary>
-        public const string Admin = "admin";
+        public const string ADMIN = "admin";
         /// <summary>
         /// User is a standard user who cannot not delete stuff, only make it inactive 
         /// </summary>
-        public const string User = "owner";
+        public const string OWNER = "owner";
 
         public static string GetProperName(string roleName)
         {
             switch (roleName)
             {
-                case Admin:
+                case ADMIN:
                     return "admin";
-                case User:
+                case OWNER:
                     return "owner";
                 default:
                     return string.Empty;

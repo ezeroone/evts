@@ -9,6 +9,7 @@ using GPSTracking.Domain.Repository;
 using GPSTracking.Service;
 using GPSTracking.Models;
 using GPSTracking.Domain;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GPSTracking.Controllers
 {
@@ -18,7 +19,7 @@ namespace GPSTracking.Controllers
         private readonly IRepository _repository;
         private readonly IOwnerService _ownerService;
         private readonly IUnitOfWork _unitOfWork;
-
+        private readonly UserManager<Profile> _userManager;
 
 
 
@@ -29,7 +30,27 @@ namespace GPSTracking.Controllers
             _repository = new Repository(_context);
             _unitOfWork = new UnitOfWork(_context);
             _ownerService = new OwnerService(_repository, _unitOfWork);
+            _userManager = new UserManager<Profile>(new UserStore<Profile>(_context));
         }
+
+
+
+        public ActionResult HeaderPartial()
+        {
+            var model = new HeaderViewModel();
+            if (User.Identity.IsAuthenticated)
+            {
+                var userId = User.Identity.GetUserId();
+                var user = _userManager.FindById(userId);
+                var userRoles = _userManager.GetRoles(userId);
+
+                model = new HeaderViewModel(user, userRoles);
+            }
+
+            return PartialView("~/Views/Shared/_HeaderPartial.cshtml", model);
+        }
+
+
 
 
         public ActionResult Index()
@@ -106,6 +127,28 @@ namespace GPSTracking.Controllers
             };
             return View(model);
         }
+
+
+        public ActionResult ImageUpload(HttpPostedFileBase[] files)
+        {
+            return View("");
+        }
+
+
+
+        #region Images 
+
+
+        [HttpGet]
+        public ActionResult VehicleImages(int vehicleId)
+        {
+            var result = _ownerService.GetImages(vehicleId).ToList();
+            return View("_VehicleImages", result);
+        }
+
+
+        #endregion
+
 
 
 

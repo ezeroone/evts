@@ -104,7 +104,9 @@ namespace GPSTracking.Controllers
                      CreatedDate = DateTime.Now,
                      ModifiedDate = DateTime.Now
                 };
-                var result = await UserManager.CreateAsync(profile, model.Password);
+                var result = UserManager.Create(profile, model.Password);
+                result = UserManager.AddToRole(profile.Id, RoleNames.OWNER);
+
                 if (result.Succeeded)
                 {
                     await SignInAsync(profile, isPersistent: false);

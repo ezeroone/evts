@@ -187,6 +187,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HeaderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\VehicleViewModel.cs" />
     <Compile Include="NinjectControllerFactory.cs" />
@@ -355,6 +356,13 @@
     <Content Include="Content\font\icomoond41d.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-audio.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-image.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-process.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-video.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload.js" />
+    <Content Include="Scripts\fileUpload\jquery.iframe-transport.js" />
     <Content Include="Scripts\form_style.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -373,6 +381,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\superfish.js" />
+    <Content Include="Scripts\Views\Home\AddVehicle\images.js" />
+    <Content Include="Scripts\Views\Home\AddVehicle\main.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -404,6 +414,9 @@
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Home\_VehicleDocuments.cshtml" />
+    <Content Include="Views\Home\_VehicleImages.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

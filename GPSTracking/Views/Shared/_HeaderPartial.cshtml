@@ -1,0 +1,31 @@
+﻿@using GPSTracking.Domain
+@model GPSTracking.Models.HeaderViewModel
+
+<ul class="top_toolbar_menu">
+    @{
+        // To prevent Null exception being thrown
+        if (Model.Role == null) { Model.Role = ""; }
+
+        if (Model.Role == RoleNames.ADMIN)
+        {
+            <li><a href="/Home/Index">Home</a></li>
+        }
+        else if (Model.Role == RoleNames.OWNER)
+        {
+            <li><a href="/">Dashboard</a></li>
+            <li><a href="/Home/About">About</a></li>
+            <li><a href="/Home/Service">Service</a></li>
+            <li><a href="/Home/Addvehicle">Add vehicle</a></li>
+            <li><a href="/Home/Contact">Contact</a></li>
+        }
+        else
+        {
+            <li><a href="/">Home</a></li>
+            <li><a href="/Home/About">About</a></li>
+            <li><a href="/Home/Service">Service</a></li>
+            <li><a href="/Home/Contact">Contact</a></li>
+        }
+    }
+
+    @Html.Partial("_LoginPartial", Model)
+</ul>

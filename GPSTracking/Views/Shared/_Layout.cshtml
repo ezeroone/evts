@@ -24,42 +24,46 @@
     <header>
         <div id="top_toolbar" class="clearfix">
             <div class="container">
-                <ul class="top_toolbar_menu">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/Home/About">About</a></li>
-                    <li><a href="/Home/Service">Service</a></li>
-                    <li><a href="/Home/Addvehicle">Add vehicle</a></li>
-                    <li><a href="/Home/Contact">Contact</a></li>
-                    @Html.Partial("_LoginPartial")
-                </ul>
-                <div id="top_toolbar_user_lng">
-                    @*<div>
-                        <a id="language_button" class="language">
-                            <img src="~/images/en.png" alt="English">English
-                        </a>
-                    </div>*@
+                @{
+                    Html.RenderAction("HeaderPartial", "Home");
+                }
 
-                    @if (!Request.IsAuthenticated)
-                    {
-                         <a href="#login_form" class="user show_login_form">Login here</a>
-                    }
+                @*<ul class="top_toolbar_menu">
+        <li><a href="/">Home</a></li>
+        <li><a href="/Home/About">About</a></li>
+        <li><a href="/Home/Service">Service</a></li>
+        <li><a href="/Home/Addvehicle">Add vehicle</a></li>
+        <li><a href="/Home/Contact">Contact</a></li>
+        @Html.Partial("_LoginPartial")
+    </ul>
+    <div id="top_toolbar_user_lng">
+        @*<div>
+            <a id="language_button" class="language">
+                <img src="~/images/en.png" alt="English">English
+            </a>
+        </div>
 
-                   
-                </div>
-                <div class="login_form_modal_container">
-                    <div id="login_form" class="box">
-                        <h3>User login</h3>
-                        <div class="box-content clearfix">
-                            <form action="#">
-                                <input type="text" placeholder="Enter your email" name="email">
-                                <input type="password" placeholder="Enter your password" name="pass">
-                                <label for="remember" class="custom_checkbox remember_me"><input type="checkbox" name="remember" id="remember">Remember me</label>
-                                <a class="button submit red right">Login</a>
-                                <a href="#" class="forgotten_pass right">Forgot your password?</a>
-                            </form>
-                        </div>
-                    </div>
-                </div>
+        @if (!Request.IsAuthenticated)
+        {
+             <a href="#login_form" class="user show_login_form">Login here</a>
+        }
+
+
+    </div>
+    <div class="login_form_modal_container">
+        <div id="login_form" class="box">
+            <h3>User login</h3>
+            <div class="box-content clearfix">
+                <form action="#">
+                    <input type="text" placeholder="Enter your email" name="email">
+                    <input type="password" placeholder="Enter your password" name="pass">
+                    <label for="remember" class="custom_checkbox remember_me"><input type="checkbox" name="remember" id="remember">Remember me</label>
+                    <a class="button submit red right">Login</a>
+                    <a href="#" class="forgotten_pass right">Forgot your password?</a>
+                </form>
+            </div>
+        </div>
+    </div>*@
             </div>
         </div>
         <div id="header_main" class="clearfix">
@@ -108,6 +112,7 @@
     <script src="~/Scripts/jquery.placeholder.min.js"></script>
     <script src="~/Scripts/jquery.fancybox-1.3.4.js"></script>
     <script src="~/Scripts/jquery.gmap.min.js"></script>
+    <script src="~/Scripts/Views/Home/AddVehicle/main.js"></script>
     <script src="~/Scripts/custom.js"></script>
 
     <script>
