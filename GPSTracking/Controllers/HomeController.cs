@@ -165,12 +165,21 @@ namespace GPSTracking.Controllers
 
             return View();
         }
+        
 
-        public ActionResult Dashboard(int ownerId)
+        [Authorize(Roles=RoleNames.OWNER)]
+        public ActionResult Dashboard()
         {
-            ViewBag.Message = "Your contact page.";
+            var userId = User.Identity.GetUserId();
+            var model = _ownerService.GetVehicles(userId);
+            var result = new List<VehicleListItem>();
+            foreach(var item in model)
+            {
+                result.Add(new VehicleListItem(item, _ownerService.GetImages(item.Id).ToList()));
+            }
 
-            return View();
+
+            return View(result);
         }
 
     }

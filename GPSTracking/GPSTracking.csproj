@@ -181,14 +181,19 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Exceptions\CatchableException.cs" />
+    <Compile Include="Exceptions\GPSTrackingExceptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HeaderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ResponseViewModel.cs" />
     <Compile Include="Models\VehicleViewModel.cs" />
     <Compile Include="NinjectControllerFactory.cs" />
     <Compile Include="NinjectWebCommon.cs" />
@@ -368,6 +373,7 @@
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.1.min.js" />
     <Content Include="Scripts\jquery.fancybox-1.3.4.js" />
     <Content Include="Scripts\jquery.gmap.min.js" />
     <Content Include="Scripts\jquery.placeholder.min.js" />
@@ -382,7 +388,6 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\Views\Home\AddVehicle\images.js" />
-    <Content Include="Scripts\Views\Home\AddVehicle\main.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -410,13 +415,13 @@
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_Layout - Copy.cshtml" />
-    <Content Include="Views\Home\Addvehicle.cshtml" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
     <Content Include="Views\Shared\_HeaderPartial.cshtml" />
-    <Content Include="Views\Home\_VehicleDocuments.cshtml" />
-    <Content Include="Views\Home\_VehicleImages.cshtml" />
+    <Content Include="Views\Vehicle\_VehicleDocuments.cshtml" />
+    <Content Include="Views\Vehicle\_VehicleImages.cshtml" />
+    <Content Include="Views\Vehicle\AddEdit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -22,6 +22,7 @@ namespace GPSTracking.Service
 
 
         Vehicle GetVehicle(int id);
+        List<Vehicle> GetVehicles(string ownerId);
 
         bool AddUpdateVechile(Vehicle vehicle);
 
@@ -32,6 +33,16 @@ namespace GPSTracking.Service
         VehicleImage GetImage(int imageId);
         bool AddImage(VehicleImage model);
         bool RemoveImage(int imageId);
+
+        #endregion
+
+
+        #region Vehicle Documents
+
+        IEnumerable<VehicleDocument> GetDocs(int vehicleId);
+        VehicleDocument GetDoc(int docId);
+        bool AddDoc(VehicleDocument model);
+        bool RemoveDoc(int docId);
 
         #endregion
 
@@ -108,6 +119,11 @@ namespace GPSTracking.Service
            return _repository.All<Vehicle>().FirstOrDefault(m => (m.Id == id));
         }
 
+        public List<Vehicle> GetVehicles(string ownerId)
+        {
+            return _repository.All<Vehicle>().Where(m => (m.OwnerId == ownerId)).ToList();
+        }
+
         public bool AddUpdateVechile(Vehicle vehicle)
         {
             var model = GetVehicle(vehicle.Id);
@@ -118,8 +134,35 @@ namespace GPSTracking.Service
             }
             else
             {
-                vehicle.UpdatedDate = DateTime.Now;
-                _repository.Update<Vehicle>(vehicle);
+                model.UpdatedDate = DateTime.Now;
+                model.BrandId = vehicle.BrandId;
+                model.CategoryId = vehicle.CategoryId;
+                model.Description = vehicle.Description;
+                model.DriverName = vehicle.DriverName;
+                model.DriverPhoneNo = vehicle.DriverPhoneNo;
+                model.DriveTypeId = vehicle.DriveTypeId;
+                model.EngCapacity = vehicle.EngCapacity;
+                model.ExteriorColorId = vehicle.ExteriorColorId;
+                model.FuelTypeId = vehicle.FuelTypeId;
+                model.InteriorColorId = vehicle.InteriorColorId;
+                model.IsNew = vehicle.IsNew;
+                model.IsPaid = vehicle.IsPaid;
+                model.LicenseNo = vehicle.LicenseNo;
+                model.LicenseRenewalDate = vehicle.LicenseRenewalDate;
+                model.LocationId = vehicle.LocationId;
+                model.MakeYear = vehicle.MakeYear;
+                model.Mileage = vehicle.Mileage;
+                model.ModelId = vehicle.ModelId;
+                model.Name = vehicle.Name;
+                model.Price = vehicle.Price;
+                model.RegisteredDate = vehicle.RegisteredDate;
+                model.RegistrationNo = vehicle.RegistrationNo;
+                model.RegYear = vehicle.RegYear;
+                model.TrackingDeviceId = vehicle.TrackingDeviceId;
+                model.TrackingLink = vehicle.TrackingLink ;
+                model.TransmissionId = vehicle.TransmissionId;
+                model.TypeId = vehicle.TypeId;
+                model.VehicleNo = vehicle.VehicleNo;
             }
             _unitOfWork.Save();
 
@@ -155,5 +198,37 @@ namespace GPSTracking.Service
             _unitOfWork.Save();
             return true;
         }
+
+
+        public IEnumerable<VehicleDocument> GetDocs(int vehicleId)
+        {
+            return _repository.All<VehicleDocument>().Where(m => (m.VehicleId == vehicleId));
+        }
+
+        public VehicleDocument GetDoc(int docId)
+        {
+            return _repository.All<VehicleDocument>().FirstOrDefault(m => (m.Id == docId));
+        }
+
+        public bool AddDoc(VehicleDocument model)
+        {
+            if (model == null) { return false; }
+            _repository.Add<VehicleDocument>(model);
+            _unitOfWork.Save();
+            return true;
+        }
+
+        public bool RemoveDoc(int docId)
+        {
+            var dbmodel = GetDoc(docId);
+            if (dbmodel == null) { return false; }
+
+            _repository.Delete<VehicleDocument>(dbmodel);
+            _unitOfWork.Save();
+            return true;
+        }
+
+
+
     }
 }

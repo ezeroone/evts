@@ -92,6 +92,7 @@ namespace GPSTracking.Domain
         public DbSet<VehicleCategory> VehicleCategories { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<VehicleImage> VehicleImages { get; set; }
+        public DbSet<VehicleDocument> VehicleDocuments { get; set; }
         public DbSet<VehicleVideo> VehicleVideos { get; set; }
 
 

@@ -17,7 +17,6 @@ namespace GPSTracking.Domain.Entities
         [InverseProperty("Id")]
         public string OwnerId { get; set; }
         public string Name { get; set; }
-
         public int LocationId { get; set; }
         public int TypeId { get; set; }
         public int ModelId { get; set; }
@@ -42,7 +41,7 @@ namespace GPSTracking.Domain.Entities
         public string LicenseNo { get; set; }
         public string RegistrationNo { get; set; }
         public string Description { get; set; }
-
+        public string TrackingLink { get; set; }
         public string TrackingDeviceId { get; set; }
         public string DriverName { get; set; }
         public string DriverPhoneNo { get; set; }
@@ -123,11 +122,11 @@ namespace GPSTracking.Domain.Entities
         public int Id { get; set; }
         public int VehicleId { get; set; }
         public string Path { get; set; }
+        public string FileName { get; set; }
 
 
         [ForeignKey("VehicleId")]
         public virtual Vehicle Vehicle { get; set; }
-
     }
 
 

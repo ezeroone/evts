@@ -78,6 +78,18 @@
     <Compile Include="Migrations\201409211315028_Login_Registration_AddVehicle.Designer.cs">
       <DependentUpon>201409211315028_Login_Registration_AddVehicle.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201411010707070_Adding_VehicleDocument_Table.cs" />
+    <Compile Include="Migrations\201411010707070_Adding_VehicleDocument_Table.Designer.cs">
+      <DependentUpon>201411010707070_Adding_VehicleDocument_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411020717562_Adding_FilenameToVehicleDocumentTable.cs" />
+    <Compile Include="Migrations\201411020717562_Adding_FilenameToVehicleDocumentTable.Designer.cs">
+      <DependentUpon>201411020717562_Adding_FilenameToVehicleDocumentTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201411020805030_Adding_TrackingLinkToVehicleTable.cs" />
+    <Compile Include="Migrations\201411020805030_Adding_TrackingLinkToVehicleTable.Designer.cs">
+      <DependentUpon>201411020805030_Adding_TrackingLinkToVehicleTable.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\GenericRepository.cs" />
@@ -93,6 +105,15 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201409211315028_Login_Registration_AddVehicle.resx">
       <DependentUpon>201409211315028_Login_Registration_AddVehicle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411010707070_Adding_VehicleDocument_Table.resx">
+      <DependentUpon>201411010707070_Adding_VehicleDocument_Table.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411020717562_Adding_FilenameToVehicleDocumentTable.resx">
+      <DependentUpon>201411020717562_Adding_FilenameToVehicleDocumentTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201411020805030_Adding_TrackingLinkToVehicleTable.resx">
+      <DependentUpon>201411020805030_Adding_TrackingLinkToVehicleTable.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
