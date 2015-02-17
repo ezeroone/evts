@@ -1,4 +1,5 @@
 ﻿using GPSTracking.Domain.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Permissions;
@@ -49,18 +50,12 @@ namespace GPSTracking.Models
 
     public class RegisterViewModel
     {
-        //[Required]
-        //[Display(Name = "User name")]
-        
-
         [Required(AllowEmptyStrings=false)]
         [EmailAddress]
         [Display(Name = "User name")]
         public string UserName { get; set; }
 
-
         public string Email { get { return UserName; } set { UserName = value; } }
-
 
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
@@ -90,6 +85,22 @@ namespace GPSTracking.Models
         public int CountryId { get; set; }
 
         public List<Country> AvailableCountries { get; set; }
+
+
+
+
+        public static explicit operator Profile(RegisterViewModel source)
+        {
+            if (source == null) { return null; }
+            return new Profile()
+            {
+                UserName = source.UserName,
+                FirstName = source.FirstName,
+                CountryId = source.CountryId,
+                CreatedDate = DateTime.Now,
+                ModifiedDate = DateTime.Now
+            };
+        }
 
     }
 }

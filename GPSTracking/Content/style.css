@@ -114,7 +114,8 @@ License: Teamforest licence
 	}
 
         input[type="submit"] {
-            padding: 0px
+            padding: 0px 10px;
+            width: auto;
         }
 
 

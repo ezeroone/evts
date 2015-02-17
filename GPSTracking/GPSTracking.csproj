@@ -183,6 +183,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\Enums\ResponseStatus.cs" />
+    <Compile Include="Core\ViewModels\AjaxDataResponse.cs" />
     <Compile Include="Exceptions\CatchableException.cs" />
     <Compile Include="Exceptions\GPSTrackingExceptions.cs">
       <SubType>Code</SubType>
@@ -388,6 +390,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\superfish.js" />
     <Content Include="Scripts\Views\Home\AddVehicle\images.js" />
+    <Content Include="Scripts\Views\Shared\LoginPartial.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -414,7 +417,6 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
@@ -422,6 +424,7 @@
     <Content Include="Views\Vehicle\_VehicleDocuments.cshtml" />
     <Content Include="Views\Vehicle\_VehicleImages.cshtml" />
     <Content Include="Views\Vehicle\AddEdit.cshtml" />
+    <Content Include="Views\Account\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

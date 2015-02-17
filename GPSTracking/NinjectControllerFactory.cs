@@ -4,6 +4,7 @@ using GPSTracking.Domain;
 using GPSTracking.Domain.Repository;
 using Ninject;
 using Ninject.Web.Common;
+using GPSTracking.Service;
 
 namespace GPSTracking
 {
@@ -25,8 +26,8 @@ namespace GPSTracking
         private void AddBindings()
         {
             //_nInjectKernel.Bind<IDataContext>().To<ContextRepository>().InRequestScope();
-            _nInjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
-            _nInjectKernel.Bind<IRepository>().To<Repository>().InRequestScope();
+            _nInjectKernel.Bind<IServiceCatalog>().To<ServiceCatalog>().InRequestScope();
+            //_nInjectKernel.Bind<IRepository<TEntity>>().To<GenericRepository>().InRequestScope();
            
 
             ////Register services with Ninject DI Container

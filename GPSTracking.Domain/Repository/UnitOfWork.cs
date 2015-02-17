@@ -1,22 +1,18 @@
 ﻿using System;
+using System.Data.Entity;
 
 namespace GPSTracking.Domain.Repository
 {
-    public interface IUnitOfWork
-    {
-        /// <summary>
-        /// Commit the In-memory changes of the DbContext to the backend database.
-        /// </summary>
-        void Save();
-    }
+
     public class UnitOfWork : IUnitOfWork
     {
-        private readonly GpsTrackingContext _context;
-        private bool _disposed = false;
+        private readonly DbContext _context;
+        private bool _disposed;
 
-        public UnitOfWork(GpsTrackingContext context)
+        public UnitOfWork(DbContext context)
         {
-            this._context = context;
+            _context = context;
+            _disposed = false;
         }
         
 
@@ -27,12 +23,7 @@ namespace GPSTracking.Domain.Repository
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!this._disposed)
-            {
-                if (disposing)
-                    _context.Dispose();
-            }
-
+            if (!this._disposed && disposing) { _context.Dispose(); }
             this._disposed = true;
         }
 

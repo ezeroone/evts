@@ -15,22 +15,11 @@ namespace GPSTracking.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IServiceCatalog _catalogSvc;
 
-        private readonly IRepository _repository;
-        private readonly IOwnerService _ownerService;
-        private readonly IUnitOfWork _unitOfWork;
-        private readonly UserManager<Profile> _userManager;
-
-
-
-
-        public HomeController(IRepository repository, IUnitOfWork unitOfWork)
+        public HomeController(IServiceCatalog catalogSvc)
         {
-            var _context = new GpsTrackingContext();
-            _repository = new Repository(_context);
-            _unitOfWork = new UnitOfWork(_context);
-            _ownerService = new OwnerService(_repository, _unitOfWork);
-            _userManager = new UserManager<Profile>(new UserStore<Profile>(_context));
+            _catalogSvc = catalogSvc;
         }
 
 
@@ -41,8 +30,8 @@ namespace GPSTracking.Controllers
             if (User.Identity.IsAuthenticated)
             {
                 var userId = User.Identity.GetUserId();
-                var user = _userManager.FindById(userId);
-                var userRoles = _userManager.GetRoles(userId);
+                var user =  _catalogSvc.UserManager.FindById(userId);
+                var userRoles = _catalogSvc.UserManager.GetRoles(userId);
 
                 model = new HeaderViewModel(user, userRoles);
             }
@@ -55,13 +44,7 @@ namespace GPSTracking.Controllers
 
         public ActionResult Index()
         {
-            if (User.Identity.IsAuthenticated)
-            {
-                var id= User.Identity.GetUserId();
-                var name = User.Identity.Name;
-                var role=User.IsInRole("Admin");
-            }
-
+            if (User.Identity.IsAuthenticated && User.IsInRole(RoleNames.OWNER)) { return RedirectToAction("Dashboard"); }
             return View();
         }
 
@@ -79,75 +62,75 @@ namespace GPSTracking.Controllers
             return View();
         }
 
-        [Authorize]
-        [HttpGet]
-        public ActionResult Addvehicle(int ?id)
-        {
-            var model = _ownerService.GetVehicle(id ?? -1);
-            if (model == null) { model = new Vehicle(); }
-            ViewBag.VM = new VehicleViewModel() 
-            {
-                 AvailableLocations = _ownerService.AllLocations().ToList(),
-                 AvailableVechicleColors = _ownerService.AllVechicleColors().ToList(),
-                 AvailableVehicleBrands = _ownerService.AllVehicleBrands().ToList(),
-                 AvailableVehicleCategories = _ownerService.AllVehicleCategorys().ToList(),
-                  AvailableVehicleDriveTypes = _ownerService.AllVehicleDriveTypes().ToList(),
-                   AvailableVehicleFuelTypes = _ownerService.AllVehicleFuelTypes().ToList(),
-                    AvailableVehicleModels = _ownerService.AllVehicleModels().ToList(),
-                     AvailableVehicleTransmisions = _ownerService.AllVehicleTransmisions().ToList(),
-                      AvailableVehicleTypes = _ownerService.AllVehicleTypes().ToList()
-            };
-            return View(model);
-        }
+        //[Authorize]
+        //[HttpGet]
+        //public ActionResult Addvehicle(int ?id)
+        //{
+        //    var model = _catalogSvc.OwnerService.GetVehicle(id ?? -1);
+        //    if (model == null) { model = new Vehicle(); }
+        //    ViewBag.VM = new VehicleViewModel() 
+        //    {
+        //        AvailableLocations = _catalogSvc.CommonService.GetLocations().ToList(),
+        //        AvailableVechicleColors = _catalogSvc.CommonService.GetVechicleColors().ToList(),
+        //        AvailableVehicleBrands = _catalogSvc.CommonService.GetVehicleBrands().ToList(),
+        //        AvailableVehicleCategories = _catalogSvc.CommonService.GetVehicleCategories().ToList(),
+        //        AvailableVehicleDriveTypes = _catalogSvc.CommonService.GetVehicleDriveTypes().ToList(),
+        //        AvailableVehicleFuelTypes = _catalogSvc.CommonService.GetVehicleFuelTypes().ToList(),
+        //        AvailableVehicleModels = _catalogSvc.CommonService.GetVehicleModels().ToList(),
+        //        AvailableVehicleTransmisions = _catalogSvc.CommonService.GetVehicleTransmisions().ToList(),
+        //        AvailableVehicleTypes = _catalogSvc.CommonService.GetVehicleTypes().ToList()
+        //    };
+        //    return View(model);
+        //}
 
-        [Authorize]
-        [HttpPost]
-        public ActionResult Addvehicle(Vehicle model)
-        {
-            if (ModelState.IsValid)
-            {
-                model.OwnerId = User.Identity.GetUserId();
-                if (_ownerService.AddUpdateVechile(model))
-                {
-                    return RedirectToAction("Addvehicle");
-                }
-            }
+        //[Authorize]
+        //[HttpPost]
+        //public ActionResult Addvehicle(Vehicle model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        model.OwnerId = User.Identity.GetUserId();
+        //        if (_catalogSvc.OwnerService.AddUpdateVechile(model))
+        //        {
+        //            return RedirectToAction("Addvehicle");
+        //        }
+        //    }
 
-            ViewBag.VM = new VehicleViewModel()
-            {
-                AvailableLocations = _ownerService.AllLocations().ToList(),
-                AvailableVechicleColors = _ownerService.AllVechicleColors().ToList(),
-                AvailableVehicleBrands = _ownerService.AllVehicleBrands().ToList(),
-                AvailableVehicleCategories = _ownerService.AllVehicleCategorys().ToList(),
-                AvailableVehicleDriveTypes = _ownerService.AllVehicleDriveTypes().ToList(),
-                AvailableVehicleFuelTypes = _ownerService.AllVehicleFuelTypes().ToList(),
-                AvailableVehicleModels = _ownerService.AllVehicleModels().ToList(),
-                AvailableVehicleTransmisions = _ownerService.AllVehicleTransmisions().ToList(),
-                AvailableVehicleTypes = _ownerService.AllVehicleTypes().ToList()
-            };
-            return View(model);
-        }
-
-
-        public ActionResult ImageUpload(HttpPostedFileBase[] files)
-        {
-            return View("");
-        }
+        //    ViewBag.VM = new VehicleViewModel()
+        //    {
+        //        AvailableLocations = _catalogSvc.OwnerService.AllLocations().ToList(),
+        //        AvailableVechicleColors = _catalogSvc.OwnerService.AllVechicleColors().ToList(),
+        //        AvailableVehicleBrands = _catalogSvc.OwnerService.AllVehicleBrands().ToList(),
+        //        AvailableVehicleCategories = _catalogSvc.OwnerService.AllVehicleCategorys().ToList(),
+        //        AvailableVehicleDriveTypes = _catalogSvc.OwnerService.AllVehicleDriveTypes().ToList(),
+        //        AvailableVehicleFuelTypes = _catalogSvc.OwnerService.AllVehicleFuelTypes().ToList(),
+        //        AvailableVehicleModels = _catalogSvc.OwnerService.AllVehicleModels().ToList(),
+        //        AvailableVehicleTransmisions = _catalogSvc.OwnerService.AllVehicleTransmisions().ToList(),
+        //        AvailableVehicleTypes = _catalogSvc.OwnerService.AllVehicleTypes().ToList()
+        //    };
+        //    return View(model);
+        //}
 
 
-
-        #region Images 
-
-
-        [HttpGet]
-        public ActionResult VehicleImages(int vehicleId)
-        {
-            var result = _ownerService.GetImages(vehicleId).ToList();
-            return View("_VehicleImages", result);
-        }
+        //public ActionResult ImageUpload(HttpPostedFileBase[] files)
+        //{
+        //    return View("");
+        //}
 
 
-        #endregion
+
+        //#region Images 
+
+
+        //[HttpGet]
+        //public ActionResult VehicleImages(int vehicleId)
+        //{
+        //    var result = _catalogSvc.OwnerService.GetImages(vehicleId).ToList();
+        //    return View("_VehicleImages", result);
+        //}
+
+
+        //#endregion
 
 
 
@@ -171,11 +154,11 @@ namespace GPSTracking.Controllers
         public ActionResult Dashboard()
         {
             var userId = User.Identity.GetUserId();
-            var model = _ownerService.GetVehicles(userId);
+            var model = _catalogSvc.OwnerService.GetVehicles(userId);
             var result = new List<VehicleListItem>();
             foreach(var item in model)
             {
-                result.Add(new VehicleListItem(item, _ownerService.GetImages(item.Id).ToList()));
+                result.Add(new VehicleListItem(item, _catalogSvc.OwnerService.GetImages(item.Id).ToList()));
             }
 
 
