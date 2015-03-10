@@ -1,22 +1,36 @@
 ﻿@using Microsoft.AspNet.Identity
+@model GPSTracking.Models.HeaderViewModel
+
 @if (Request.IsAuthenticated)
 {
-    using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { id = "logoutForm", @class = "navbar-right" }))
-    {
-    @Html.AntiForgeryToken()
+    <div id="top_toolbar_user_lng">
+        <div>
+            @Html.ActionLink("Hello " + Model.WelcomeName + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
+        </div>
+        @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logoutForm", @style="display:inline"}))
+        {
+            @Html.AntiForgeryToken()
+            <a href="javascript:document.getElementById('logoutForm').submit()" class="user">Log off</a>
+        }
+    </div>
+        return;
+}
+<div id="top_toolbar_user_lng">
+    <div>
+        @Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })
+    </div>
+    <a class="user show_login_form" href="#login_form">
+        Login
+    </a>
+</div>
+<div class="login_form_modal_container">
+    <div style="width:auto;height:auto;overflow: hidden;position:relative;">
+        <div class="box" id="login_form">
+            <h3>Login</h3>
+            <div class="box-content clearfix">
+                @Html.Action("LoginPartial", "Account")
+            </div>
+        </div>
+    </div>
+</div>
 
-    <ul class="nav navbar-nav navbar-right" style="float:right">
-        <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Manage", "Account", routeValues: null, htmlAttributes: new { title = "Manage" })
-        </li>
-        <li><a href="javascript:document.getElementById('logoutForm').submit()">Log off</a></li>
-    </ul>
-    }
-}
-else
-{
-    <ul class="nav navbar-nav navbar-right">
-        <li>@Html.ActionLink("Register", "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink" })</li>
-        <li>@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
-    </ul>
-}

@@ -1,0 +1,196 @@
+﻿@using GPSTracking.Models
+@model GPSTracking.Domain.Entities.Vehicle
+@{
+    ViewBag.Title = "Add vehicle : i track my vehicle";
+    var vmHelper = (VehicleViewModel)ViewBag.VM;
+}
+
+
+<script src="~/Scripts/Views/Home/AddVehicle/main.js"></script>
+
+<div class="container_12 clearfix" id="add_new_item_info">
+    <input type="hidden" id="parentVehicleId" value="@Model.Id" />
+
+    @using (Html.BeginForm("AddEdit", "vehicle"))
+    {
+        <div class="grid_8 bigger_margin">
+            <div class="box clearfix">
+                <h3>Vehicle info</h3>
+                <div class="box-content clearfix bordered_under">
+                    <div class="half left">
+                        <p>
+                            @Html.LabelFor(m => m.TypeId, "Type", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.TypeId, new SelectList(vmHelper.AvailableVehicleDriveTypes, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                        <p class="smaller_margin">
+                            <label for="IsNew" class="custom_radio">
+                                @Html.RadioButtonFor(m => m.IsNew, true, new { @id = "IsNew" }) New Item
+                            </label>
+                            <label for="IsUsed" class="custom_radio">
+                                @Html.RadioButtonFor(m => m.IsNew, false, new { @id = "IsUsed" }) Used Item
+                            </label>
+                        </p>
+                    </div>
+                    <div class="half right">
+                        <p>
+                            @Html.LabelFor(m => m.CategoryId, "Category", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.CategoryId, new SelectList(vmHelper.AvailableVehicleCategories, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                    </div>
+                </div>
+                <div class="box-content clearfix">
+                    <div class="half left">
+                        <p>
+                            @Html.LabelFor(m => m.LocationId, "Location", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.LocationId, new SelectList(vmHelper.AvailableLocations, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+
+                        <p>
+                            @Html.LabelFor(m => m.BrandId, "Brand", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.BrandId, new SelectList(vmHelper.AvailableVehicleBrands, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.ModelId, "Model", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.ModelId, new SelectList(vmHelper.AvailableVehicleModels, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.Price, "Price", new { @class = "dropdown_label" })
+                            @Html.TextBoxFor(m => m.Price, new { })
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.ExteriorColorId, "Exterior color", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.ExteriorColorId, new SelectList(vmHelper.AvailableVechicleColors, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.InteriorColorId, "Interior color", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.InteriorColorId, new SelectList(vmHelper.AvailableVechicleColors, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                    </div>
+                    <div class="half right">
+
+                        <p>
+                            @Html.LabelFor(m => m.TransmissionId, "Transmision", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.TransmissionId, new SelectList(vmHelper.AvailableVehicleTransmisions, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.EngCapacity, "Engine Capacity", new { @class = "dropdown_label" })
+                            <select name="EngCapacity" id="EngCapacity" class="custom_select range">
+                                <option value="0,8">0,8</option>
+                                <option value="1,2<">1,2</option>
+                                <option value="1,6">1,6</option>
+                                <option value="1,9">1,9</option>
+                                <option value="2,0">2,0</option>
+                                <option value="2,5">2,5</option>
+                                <option value="3,0">3,0</option>
+                                <option value="4,0">4,0</option>
+                                <option value="5,0">5,0</option>
+                                <option value="6,0">6,0</option>
+                            </select>
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.FuelTypeId, "Fuel", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.FuelTypeId, new SelectList(vmHelper.AvailableVehicleFuelTypes, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.DriveTypeId, "Drive", new { @class = "dropdown_label" })
+                            @Html.DropDownListFor(m => m.DriveTypeId, new SelectList(vmHelper.AvailableVehicleDriveTypes, "Id", "Name"), new { @class = "custom_select" })
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.Mileage, "Mileage", new { @class = "dropdown_label" })
+                            @Html.TextBoxFor(m => m.Mileage, new { })
+                        </p>
+                    </div>
+
+                </div>
+                <div class="box-content clearfix bordered_under">
+                    <div class="">
+                        <p class="smaller_margin">
+                            @Html.LabelFor(m => m.TrackingLink, "Tracking Link", new { @class = "dropdown_label" })
+                            @Html.TextBoxFor(m => m.TrackingLink)
+                        </p>
+                    </div>
+                </div>
+                <div class="box-content clearfix bordered_under">
+                    <div class="half left">
+                        <p>
+                            @Html.LabelFor(m => m.LicenseRenewalDate, "License renewal Date", new { @class = "dropdown_label" })
+                            @*@Html.TextBoxFor(m => m.LicenseRenewalDate, new { @class = "datepicker" })*@
+                            <input class="datepicker" name="LicenseRenewalDate" value="@Model.LicenseRenewalDate.ToShortDateString()" />
+                        </p>
+                        <p class="smaller_margin">
+                            @Html.LabelFor(m => m.DriverPhoneNo, "Owner/Driver Mobile No", new { @class = "dropdown_label" })
+                            @Html.TextBoxFor(m => m.DriverPhoneNo, new { })
+                        </p>
+                    </div>
+                    <div class="half right">
+                        <p>
+                            @Html.LabelFor(m => m.RegisteredDate, "Registered Date", new { @class = "dropdown_label" })
+                            @*@Html.TextBoxFor(m => m.RegisteredDate, new { @class = "datepicker" })*@
+                            <input class="datepicker" name="RegisteredDate" value="@Model.RegisteredDate.ToShortDateString()" />
+                        </p>
+                        <p>
+                            @Html.LabelFor(m => m.TrackingDeviceId, "racking Device/Gps Id", new { @class = "dropdown_label" })
+                            @Html.TextBoxFor(m => m.TrackingDeviceId, new { })
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="box">
+                <h3>Vehicle description</h3>
+                <div class="box-content">
+                    @Html.TextAreaFor(m => m.Description, new { @placeholder = "Enter your description" })
+                </div>
+            </div>
+            <input type="submit" class="button submit green" value="Track my vehicle" />
+        </div>
+
+        <div class="grid_4">
+            @if (Model.Id > 0)
+            {
+                <div class="box">
+                    <h3>Add Photos</h3>
+                    <div class="box-content">
+                        <p class="centered_content">
+                            <a class="button red showImageUpload">Upload photos</a>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="box">
+                    <h3>Add Documents</h3>
+                    <div class="box-content">
+                        <p class="centered_content">
+                            <a class="button red showDocumentUpload">Upload Documents</a>
+                        </p>
+                    </div>
+                </div>
+
+
+                <!--Image Popup-->
+                <div id="image_container" class="login_form_modal_container">
+                    @{
+                Html.RenderAction("Images", new { id = Model.Id });
+                    }
+                </div>
+
+                <!--Document Popup-->
+                <div id="document_container" class="login_form_modal_container">
+                    @{
+                Html.RenderAction("Documents", new { id = Model.Id });
+                    }
+                </div>
+            }
+
+            <div class="box">
+                <h3>Privacy options</h3>
+                <div class="box-content">
+                    <p><label for="negotiable" class="custom_checkbox"><input type="checkbox" name="negotiable" id="negotiable">Show in public</label></p>
+                    <p><label for="exchange" class="custom_checkbox"><input type="checkbox" name="trackvehicle" id="trackvehicle">Track my vehicle</label></p>
+                    <p><label for="renewalert" class="custom_checkbox"><input type="checkbox" checked="checked" name="renewalert" id="renewalert">Send renewal alert</label></p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+

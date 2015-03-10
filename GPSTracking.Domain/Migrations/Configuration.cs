@@ -1,6 +1,8 @@
 namespace GPSTracking.Domain.Migrations
 {
     using GPSTracking.Domain.Entities;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
@@ -16,18 +18,7 @@ namespace GPSTracking.Domain.Migrations
 
         protected override void Seed(GPSTracking.Domain.GpsTrackingContext context)
         {
-            //  This method will be called after migrating to the latest version.
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
 
 
             context.Regions.AddOrUpdate(
@@ -119,6 +110,47 @@ new VechicleColor() { Id = 7, Name = "Dark brown" });
 new VehicleFuelType() { Id = 1, Name = "Gasoline" },
 new VehicleFuelType() { Id = 2, Name = "Diesel" },
 new VehicleFuelType() { Id = 3, Name = "LPG" });
+
+
+            //  This method will be called after migrating to the latest version.
+            var userManager = new UserManager<Profile>(new UserStore<Profile>(context));
+            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+
+            // Adding Roles
+            if (!roleManager.RoleExists(RoleNames.ADMIN)) { roleManager.Create(new IdentityRole(RoleNames.ADMIN)); }
+            if (!roleManager.RoleExists(RoleNames.OWNER)) { roleManager.Create(new IdentityRole(RoleNames.OWNER)); }
+
+            // Adding Admin account
+            if (userManager.FindByEmail("admin@gpstracking.com") == null)
+            {
+                var adminUser = new Profile()
+                {
+                    Email = "admin@gpstracking.com",
+                    FirstName = "Global Admin",
+                    CountryId = 1,
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
+                };
+                userManager.Create(adminUser, "1qaz2wsx");
+                userManager.AddToRole(adminUser.Id, RoleNames.ADMIN);
+            }
+
+            if (userManager.FindByEmail("tester@gpstracking.com") == null)
+            {
+                var adminUser = new Profile()
+                {
+                    Email = "tester@gpstracking.com",
+                    FirstName = "Test",
+                    LastName = "Owner",
+                    CountryId = 1,
+                    CreatedDate = DateTime.Now,
+                    ModifiedDate = DateTime.Now
+                };
+                userManager.Create(adminUser, "1qaz2wsx");
+                userManager.AddToRole(adminUser.Id, RoleNames.OWNER);
+            }
+
+
 
         }
     }

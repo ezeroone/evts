@@ -181,13 +181,21 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Core\Enums\ResponseStatus.cs" />
+    <Compile Include="Core\ViewModels\AjaxDataResponse.cs" />
+    <Compile Include="Exceptions\CatchableException.cs" />
+    <Compile Include="Exceptions\GPSTrackingExceptions.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\HeaderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ResponseViewModel.cs" />
     <Compile Include="Models\VehicleViewModel.cs" />
     <Compile Include="NinjectControllerFactory.cs" />
     <Compile Include="NinjectWebCommon.cs" />
@@ -355,11 +363,19 @@
     <Content Include="Content\font\icomoond41d.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-audio.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-image.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-process.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-ui.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload-video.js" />
+    <Content Include="Scripts\fileUpload\jquery.fileupload.js" />
+    <Content Include="Scripts\fileUpload\jquery.iframe-transport.js" />
     <Content Include="Scripts\form_style.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Scripts\jquery-ui-1.9.1.min.js" />
     <Content Include="Scripts\jquery.fancybox-1.3.4.js" />
     <Content Include="Scripts\jquery.gmap.min.js" />
     <Content Include="Scripts\jquery.placeholder.min.js" />
@@ -373,6 +389,8 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\superfish.js" />
+    <Content Include="Scripts\Views\Home\AddVehicle\images.js" />
+    <Content Include="Scripts\Views\Shared\LoginPartial.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -399,11 +417,14 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Shared\_Layout - Copy.cshtml" />
-    <Content Include="Views\Home\Addvehicle.cshtml" />
     <Content Include="Views\Home\Service.cshtml" />
     <Content Include="Views\Home\Detail.cshtml" />
     <Content Include="Views\Home\Dashboard.cshtml" />
+    <Content Include="Views\Shared\_HeaderPartial.cshtml" />
+    <Content Include="Views\Vehicle\_VehicleDocuments.cshtml" />
+    <Content Include="Views\Vehicle\_VehicleImages.cshtml" />
+    <Content Include="Views\Vehicle\AddEdit.cshtml" />
+    <Content Include="Views\Account\_Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

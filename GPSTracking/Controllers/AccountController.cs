@@ -20,28 +20,13 @@ namespace GPSTracking.Controllers
     [Authorize]
     public class AccountController : Controller
     {
-        private readonly IRepository _repository;
-        private readonly IOwnerService _customerService;
-        private readonly IUnitOfWork  _unitOfWork;
-        //private readonly GpsTrackingContext _context;
+        private readonly IServiceCatalog _catalogSvc;
 
-        public AccountController(IRepository repository, IUnitOfWork unitOfWork)//: this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new GpsTrackingContext())))
+        public AccountController(IServiceCatalog catalogSvc)
         {
-            //_context = new GpsTrackingContext();
-            _repository = repository;
-            _unitOfWork = unitOfWork;
-            _customerService = new OwnerService(_repository, _unitOfWork);
-            UserManager = new UserManager<Profile>(new UserStore<Profile>(new GpsTrackingContext()));
+            _catalogSvc = catalogSvc;
         }
 
-        //public AccountController(UserManager<ApplicationUser> userManager = new UserManager<ApplicationUser>())
-        //{
-        //    UserManager = userManager;
-        //}
-
-        public UserManager<Profile> UserManager { get; private set; }
-
-        //
         // GET: /Account/Login
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
@@ -49,6 +34,7 @@ namespace GPSTracking.Controllers
             ViewBag.ReturnUrl = returnUrl;
             return View();
         }
+
 
         //
         // POST: /Account/Login
@@ -59,7 +45,7 @@ namespace GPSTracking.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = await UserManager.FindAsync(model.UserName, model.Password);
+                var user = await _catalogSvc.UserManager.FindAsync(model.UserName, model.Password);
                 if (user != null)
                 {
                     await SignInAsync(user, model.RememberMe);
@@ -75,15 +61,40 @@ namespace GPSTracking.Controllers
             return View(model);
         }
 
+
+               
+        [HttpGet]
+        [AllowAnonymous]
+        public ActionResult LoginPartial()
+        {
+            return PartialView("_Login");
+        }
+
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> LoginPartial(LoginViewModel model)
+        {
+            if (!ModelState.IsValid) { return PartialView("_Login", model); }
+            var user = await _catalogSvc.UserManager.FindAsync(model.UserName, model.Password);
+            if (user != null)
+            {
+                await SignInAsync(user, model.RememberMe);
+                return Json("", JsonRequestBehavior.AllowGet);
+            }
+
+            ModelState.AddModelError("", "Unexpected error occurred while sigining in");
+            return PartialView("_Login", model);
+        }
+
         //
         // GET: /Account/Register
         [AllowAnonymous]
         public ActionResult Register()
         {
-            var model = new RegisterViewModel() 
-            {
-              AvailableCountries = _customerService.AllCountries().ToList()
-            };
+            var model = new RegisterViewModel() ;
+            model.AvailableCountries = _catalogSvc.CommonService.GetCountries().ToList();
             return View(model);
         }
 
@@ -96,66 +107,20 @@ namespace GPSTracking.Controllers
         {
             if (ModelState.IsValid)
             {
-                var profile = new Profile()
-                {
-                     UserName = model.UserName,
-                     FirstName = model.FirstName,
-                     CountryId = model.CountryId,
-                     CreatedDate = DateTime.Now,
-                     ModifiedDate = DateTime.Now
-                };
-                var result = await UserManager.CreateAsync(profile, model.Password);
+                var profile = (Profile)model;
+                var result = _catalogSvc.UserManager.Create(profile, model.Password);
+                result = _catalogSvc.UserManager.AddToRole(profile.Id, RoleNames.OWNER);
+
                 if (result.Succeeded)
                 {
                     await SignInAsync(profile, isPersistent: false);
                     return RedirectToAction("Index", "Home");
                 }
-                else
-                {
-                    AddErrors(result);
-                }
 
-
-                //var owner = new Owner
-                //{
-                //    FirstName = model.FirstName,
-                //    Email = model.Email,
-                //    Mobile = model.MobileNumber,
-                //    CreatedDate = System.DateTime.UtcNow,
-                //    IsDeleted = false,
-                //    IsActive = true,
-
-                //    //Country = country ?? null,
-                //};
-                //var user = new ApplicationUser() 
-                //{ 
-                //    UserName = model.UserName,
-                //    //Owner = owner,
-                //};
-                //var profile = new CreateNewProfileModel
-                //{
-                //    Profile = user,
-                //    Password = model.Password
-                //};
-
-
-                //var country = _repository.All<Country>().FirstOrDefault(q => q.Id == model.Country);
-                //var result = await _repository.CreateNewProfile(profile);//.CreateAsync(user, model.Password);
-                //if (result.Status)
-                //{
-                //    await UserManager.AddToRoleAsync(user.Id, "Owner");
-                    
-                //    await SignInAsync(user, isPersistent: false);
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //else
-                //{
-                //    //AddErrors(result);
-                //}
+                AddErrors(result);
             }
-
-
-            model.AvailableCountries = _customerService.AllCountries().ToList();
+          
+            model.AvailableCountries = _catalogSvc.CommonService.GetCountries().ToList();
             // If we got this far, something failed, redisplay form
             return View(model);
         }
@@ -167,7 +132,7 @@ namespace GPSTracking.Controllers
         public async Task<ActionResult> Disassociate(string loginProvider, string providerKey)
         {
             ManageMessageId? message = null;
-            IdentityResult result = await UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
+            IdentityResult result = await _catalogSvc.UserManager.RemoveLoginAsync(User.Identity.GetUserId(), new UserLoginInfo(loginProvider, providerKey));
             if (result.Succeeded)
             {
                 message = ManageMessageId.RemoveLoginSuccess;
@@ -207,7 +172,7 @@ namespace GPSTracking.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
+                    IdentityResult result = await _catalogSvc.UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
                     if (result.Succeeded)
                     {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.ChangePasswordSuccess });
@@ -229,7 +194,7 @@ namespace GPSTracking.Controllers
 
                 if (ModelState.IsValid)
                 {
-                    IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
+                    IdentityResult result = await _catalogSvc.UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
                     if (result.Succeeded)
                     {
                         return RedirectToAction("Manage", new { Message = ManageMessageId.SetPasswordSuccess });
@@ -268,7 +233,7 @@ namespace GPSTracking.Controllers
             }
 
             // Sign in the user with this external login provider if the user already has a login
-            var user = await UserManager.FindAsync(loginInfo.Login);
+            var user = await _catalogSvc.UserManager.FindAsync(loginInfo.Login);
             if (user != null)
             {
                 await SignInAsync(user, isPersistent: false);
@@ -302,7 +267,7 @@ namespace GPSTracking.Controllers
             {
                 return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
             }
-            var result = await UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
+            var result = await _catalogSvc.UserManager.AddLoginAsync(User.Identity.GetUserId(), loginInfo.Login);
             if (result.Succeeded)
             {
                 return RedirectToAction("Manage");
@@ -331,10 +296,10 @@ namespace GPSTracking.Controllers
                     return View("ExternalLoginFailure");
                 }
                 var user = new Profile() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user);
+                var result = await _catalogSvc.UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
-                    result = await UserManager.AddLoginAsync(user.Id, info.Login);
+                    result = await _catalogSvc.UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
                         await SignInAsync(user, isPersistent: false);
@@ -369,17 +334,16 @@ namespace GPSTracking.Controllers
         [ChildActionOnly]
         public ActionResult RemoveAccountList()
         {
-            var linkedAccounts = UserManager.GetLogins(User.Identity.GetUserId());
+            var linkedAccounts = _catalogSvc.UserManager.GetLogins(User.Identity.GetUserId());
             ViewBag.ShowRemoveButton = HasPassword() || linkedAccounts.Count > 1;
             return (ActionResult)PartialView("_RemoveAccountPartial", linkedAccounts);
         }
 
         protected override void Dispose(bool disposing)
         {
-            if (disposing && UserManager != null)
+            if (disposing && _catalogSvc != null)
             {
-                UserManager.Dispose();
-                UserManager = null;
+                _catalogSvc.Dispose();
             }
             base.Dispose(disposing);
         }
@@ -399,7 +363,7 @@ namespace GPSTracking.Controllers
         private async Task SignInAsync(Profile user, bool isPersistent)
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ExternalCookie);
-            var identity = await UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
+            var identity = await _catalogSvc.UserManager.CreateIdentityAsync(user, DefaultAuthenticationTypes.ApplicationCookie);
             AuthenticationManager.SignIn(new AuthenticationProperties() { IsPersistent = isPersistent }, identity);
         }
 
@@ -413,7 +377,7 @@ namespace GPSTracking.Controllers
 
         private bool HasPassword()
         {
-            var user = UserManager.FindById(User.Identity.GetUserId());
+            var user = _catalogSvc.UserManager.FindById(User.Identity.GetUserId());
             if (user != null)
             {
                 return user.PasswordHash != null;

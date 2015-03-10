@@ -1,0 +1,89 @@
+﻿@using GPSTracking.Domain.Entities
+@model  GPSTracking.Models.VehicleDocumentsViewModel
+@{
+    Layout = "";
+}
+
+<style>
+
+    .rowParent {    
+        display:table-row
+    }
+
+    .rowChild {
+        display:table-cell !important;
+        vertical-align:middle
+    }
+</style>
+
+<div id="document_upload_box">
+    <div class="container_12 clearfix">
+        <div class="box">
+            <h3>Vehicle Documents</h3>
+            <div class="box-content bordered_under" style="margin-bottom:0">
+                <form action="#" method="post"></form>
+                <form id="frmDocumentUpload" action="/Vehicle/UploadDocumentAjax" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="VehicleId" value="@Model.UploadingDocument.VehicleId" />
+                    <div class="row">
+                        <div class="span10">
+                            <input type="file" name="file" id="file" placeholder="Select document to upload ..." />
+                        </div>
+                        <div class="span2">
+                            <input class="button red" type="submit" name="File" value="Upload" />
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="box-content">
+                <div class="container_12 clearfix">
+                    <div class="grid_12 content">
+                        @if (Model.UploadedDocuments != null && Model.UploadedDocuments.Any())
+{
+    for (var i = 0; i < Model.UploadedDocuments.Count(); i++)
+    {
+        var item = Model.UploadedDocuments.ElementAt(i);
+        bool isLastItem = ((i + 1) % 4 == 0);
+
+        <div class="row" data-id="@item.Id">
+                <div class="span1 rowChild">
+                    <i class="icon-file" style="font-size:20px"></i>
+                </div>
+                <div class="span9 rowChild">
+                    @item.FileName
+                </div>
+                <div class="span2 rowChild">
+                    <a class="clear_filters removeDocument" href="">
+                        <i class="icon-remove"></i>
+                    </a>
+                </div>
+          
+        </div>
+
+                                                        @*<article class="box clearfix grid_item @(isLastItem ? "last" : "")" data-id="@item.Id">
+                                    <div class="item_heading">
+                                        <div class="overlayed" style="height: 100px">
+                                            <img class="span6" src="@item.Path">
+                                            <div class="overlay">
+                                                <span class="overlay-icon-single">
+                                                    <a data-fancybox-group="group1" class="fancybox" href="@item.Path">
+                                                        <i class="icomoon-expand-2"></i>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="item_footer">
+                                        <a class="clear_filters removeImage" href="">
+                                            <i class="icon-remove"></i>Remove Document
+                                        </a>
+                                    </div>
+                                </article>*@
+    }
+                        }
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

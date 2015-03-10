@@ -11,24 +11,41 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace GPSTracking.Domain
 {
-    public interface IDataContext
+    /// <summary>
+    /// An interface for disposable data context
+    /// </summary>
+    public interface IDataContext : IDisposable
     {
-        GpsTrackingContext GetEntityContext();
+        GpsTrackingContext EntityContext
+        {
+            get;
+        } 
     }
 
+
+
+    /// <summary>
+    /// A data contxt implmentation
+    /// </summary>
     public class ContextRepository : IDataContext
     {
         private readonly GpsTrackingContext _context = new GpsTrackingContext();
-        public GpsTrackingContext GetEntityContext()
+
+
+        public GpsTrackingContext EntityContext
         {
-            return _context;
+            get { return _context; }
         }
 
         public void Dispose()
         {
+            if (_context == null) { return; }
             _context.Dispose();
         }
     }
+
+
+
 
     public class GpsTrackingContext : IdentityDbContext<Profile>
     {
@@ -75,6 +92,7 @@ namespace GPSTracking.Domain
         public DbSet<VehicleCategory> VehicleCategories { get; set; }
         public DbSet<VehicleType> VehicleTypes { get; set; }
         public DbSet<VehicleImage> VehicleImages { get; set; }
+        public DbSet<VehicleDocument> VehicleDocuments { get; set; }
         public DbSet<VehicleVideo> VehicleVideos { get; set; }
 
 
@@ -82,6 +100,8 @@ namespace GPSTracking.Domain
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+          
+
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Vehicle>()
