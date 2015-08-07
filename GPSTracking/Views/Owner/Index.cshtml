@@ -1,0 +1,59 @@
+﻿@model GPSTracking.Models.OwnerModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutOwner.cshtml";
+}
+
+<!-- Start Body Content -->
+
+            <div class="dashboard-wrapper">
+                <div class="row">
+                    <div class="col-md-3 col-sm-4 users-sidebar-wrapper">
+                        <!-- SIDEBAR -->
+                        <div class="users-sidebar tbssticky">
+                            <a href="#" class="btn btn-block btn-primary add-listing-btn">Manage your data</a>
+                            <ul class="list-group">
+                                <li class="list-group-item active" > <a href="#" data-url='@Url.Action("OwnerProfile", "Owner", new { id = ViewBag.UserId })'><i class="fa fa-user"></i> My Profile</a></li>
+                                <li class="list-group-item "> <span class="badge">5</span> <a href="#" data-url='@Url.Action("Dashboard", "Owner", new { id = ViewBag.UserId })'><i class="fa fa-home"></i> Dashboard</a></li>
+                                <li class="list-group-item"> <a href="#" data-url='@Url.Action("Addvehicle", "Owner", new { id = ViewBag.UserId })'><i class="fa fa-plus-square-o"></i> Add vehicle</a></li>
+                                <li class="list-group-item"> <span class="badge">2</span> <a href="#"><i class="fa fa-edit"></i> Manage Ads</a></li>
+                                <li class="list-group-item"> <a href="#" data-url='@Url.Action("Addvehicle", "Owner", new { id = ViewBag.UserId })'><i class="fa fa-cog"></i> Account Settings</a></li>
+                                <li class="list-group-item"> <a href="/Account/LogOff"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-md-9 col-sm-8" id ="loadPartialContainer">
+                       @Html.Partial("_OwnerProfile",Model.Owner);
+                    </div>
+                </div>
+            </div>
+  
+<!-- End Body Content -->
+<script src="~/Content/js/jquery-2.0.0.min.js"></script> <!-- Jquery Library Call -->
+<script type="text/javascript">
+    
+    $(document).ready(function(){
+    
+     $("li.list-group-item a").on('click',function(evt) {    
+        
+         $(".list-group li").removeClass("active");
+
+         evt.preventDefault();
+         evt.stopPropagation();
+         var url = $(this).data('url');
+         //alert(url)
+         if (url == null || url == "undefined") {
+             return;
+         };
+         $(this).parent('li').addClass("active");
+         $.post(url, function (data) {
+             $("#loadPartialContainer").html(data);
+         });
+
+     });
+    });
+
+
+
+</script>

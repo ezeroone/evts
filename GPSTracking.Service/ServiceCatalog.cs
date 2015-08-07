@@ -15,15 +15,18 @@ namespace GPSTracking.Service
     public class ServiceCatalog : IServiceCatalog
     {
         private DbContext _context;
-        private ICatalog _catalog;
         protected UserManager<Profile> _userManager;
         protected ICommonService _commonSvc;
         protected IOwnerService _ownerSvc;
 
-        public ServiceCatalog()
+        private readonly IRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public ServiceCatalog(IRepository repository, IUnitOfWork unitOfWork)
         {
             _context = new GpsTrackingContext();
-            _catalog = new Catalog(_context);
+            _repository = repository;
+            _unitOfWork = unitOfWork;
         }
 
         public UserManager<Profile> UserManager
@@ -39,7 +42,7 @@ namespace GPSTracking.Service
         {
             get 
             {
-                if (_ownerSvc == null) { _ownerSvc = new OwnerService(_catalog); }
+                if (_ownerSvc == null) { _ownerSvc = new OwnerService(_repository, _unitOfWork); }
                 return _ownerSvc;
             }
         }
@@ -49,7 +52,7 @@ namespace GPSTracking.Service
         {
             get
             {
-                if (_commonSvc == null) { _commonSvc = new CommonService(_catalog); }
+                if (_commonSvc == null) { _commonSvc = new CommonService(_repository, _unitOfWork); }
                 return _commonSvc;
             }
         }

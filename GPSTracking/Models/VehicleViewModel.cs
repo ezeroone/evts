@@ -1,4 +1,5 @@
 ﻿
+using GPSTracking.Common;
 using GPSTracking.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -33,10 +34,19 @@ namespace GPSTracking.Models
         public List<VehicleTransmision> AvailableVehicleTransmisions { get; set; }
         public List<VehicleFuelType> AvailableVehicleFuelTypes { get; set; }
         public List<VehicleDriveType> AvailableVehicleDriveTypes { get; set; }
+        public Vehicle Vehicle { get; set; }
+        public int OwnerId { get; set; }
+        public int VehicleId { get; set; }
+
+        public List<DisplayNameValue> Years { get; set; }
     }
 
 
-
+    public class OwnerModel
+    {
+        public VehicleOwner Owner { get; set; }
+        public List<VehicleListItem> Vehicles { get; set; }
+    }
 
     public class VehicleListItem
     {

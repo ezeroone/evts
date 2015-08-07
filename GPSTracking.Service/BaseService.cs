@@ -9,11 +9,6 @@ namespace GPSTracking.Service
 {
     public abstract class BaseService
     {
-        protected readonly ICatalog _catalog;
-
-        public BaseService(ICatalog catalog)
-        {
-            _catalog = catalog;
-        }
+        
     }
 }

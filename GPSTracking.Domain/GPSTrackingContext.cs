@@ -29,12 +29,12 @@ namespace GPSTracking.Domain
     /// </summary>
     public class ContextRepository : IDataContext
     {
-        private readonly GpsTrackingContext _context = new GpsTrackingContext();
+        private  GpsTrackingContext _context;
 
 
         public GpsTrackingContext EntityContext
         {
-            get { return _context; }
+            get { return _context ?? (_context = new GpsTrackingContext()); }
         }
 
         public void Dispose()
@@ -47,13 +47,13 @@ namespace GPSTracking.Domain
 
 
 
-    public class GpsTrackingContext : IdentityDbContext<Profile>
+    public class GpsTrackingContext : IdentityDbContext<Profile, IdentityExtention.RoleIntPk, int, IdentityExtention.UserLoginIntPk, IdentityExtention.UserRoleIntPk, IdentityExtention.UserClaimIntPk>//IdentityDbContext<Profile>
     {
         public GpsTrackingContext()
             : base("GpsTrackingConnection")
         {
             //AutomaticMigrationsEnabled = false;
-            Configuration.LazyLoadingEnabled = true;
+            Configuration.LazyLoadingEnabled = false;
         }
 
         //protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -74,8 +74,8 @@ namespace GPSTracking.Domain
 
             //Database.SetInitializer(new CreateDatabaseIfNotExists<eHorakelleDataContext>());
         }
-        
-        //public DbSet<Owner> Owners { get; set; }
+
+       
         public DbSet<Country> Countries { get; set; }
         public DbSet<Location> Locations { get; set; }
         public DbSet<PasswordResetToken> PasswordResetTokens { get; set; }
@@ -95,7 +95,8 @@ namespace GPSTracking.Domain
         public DbSet<VehicleDocument> VehicleDocuments { get; set; }
         public DbSet<VehicleVideo> VehicleVideos { get; set; }
 
-
+        public DbSet<Feature> Features { get; set; }
+        public DbSet<VehicleOwner> VehicleOwners { get; set; }
 
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -103,6 +104,8 @@ namespace GPSTracking.Domain
           
 
             base.OnModelCreating(modelBuilder);
+
+           // modelBuilder.Entity<VehicleOwner>().HasRequired(m => m.User);
 
             modelBuilder.Entity<Vehicle>()
                    .HasRequired(m => m.InteriorColor)

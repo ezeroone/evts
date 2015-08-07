@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace GPSTracking.Domain.Repository
 {
-    public class GenericRepository<TEntity> : IRepository<TEntity>
+    public class GenericRepository<TEntity> : IRepository1<TEntity>
         where TEntity : class, new()
     {
         public DbContext _context;

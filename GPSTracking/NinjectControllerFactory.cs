@@ -25,19 +25,9 @@ namespace GPSTracking
 
         private void AddBindings()
         {
-            //_nInjectKernel.Bind<IDataContext>().To<ContextRepository>().InRequestScope();
-            _nInjectKernel.Bind<IServiceCatalog>().To<ServiceCatalog>().InRequestScope();
-            //_nInjectKernel.Bind<IRepository<TEntity>>().To<GenericRepository>().InRequestScope();
-           
-
-            ////Register services with Ninject DI Container
-            //_nInjectKernel.Bind<eZeroOne.Service.Users.IUserService>().To<eZeroOne.Service.Users.UserService>().InRequestScope();
-            //_nInjectKernel.Bind<eZeroOne.Service.Common.ICommon>().To<eZeroOne.Service.Common.Common>().InRequestScope();
-            //_nInjectKernel.Bind<eZeroOne.Service.Employee.IEmployee>().To<eZeroOne.Service.Employee.Employee>().InRequestScope();
-            //_nInjectKernel.Bind<eZeroOne.Service.Items.IItems>().To<eZeroOne.Service.Items.Items>().InRequestScope();
-            //_nInjectKernel.Bind<eZeroOne.Service.Customers.ICustomerService>().To<eZeroOne.Service.Customers.CustomerService>().InRequestScope();   
-
-
+            
+            _nInjectKernel.Bind<IRepository>().To<Repository>().InRequestScope();
+            _nInjectKernel.Bind<IUnitOfWork>().To<UnitOfWork>().InRequestScope();
 
         }
     }

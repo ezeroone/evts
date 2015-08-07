@@ -9,11 +9,13 @@ namespace GPSTracking.Service
 {
     public interface IOwnerService
     {
-        Vehicle GetVehicle(string ownerId, int id);
-        List<Vehicle> GetVehicles(string ownerId);
+        Vehicle GetVehicle(int ownerId, int id);
+        List<Vehicle> GetVehicles(int ownerId);
         bool AddUpdateVechile(Vehicle vehicle);
+        bool UpdateOwner(VehicleOwner owner);
 
-
+        VehicleOwner GetOwner(int userId);
+       
         #region Vehicle Images
 
         IEnumerable<VehicleImage> GetImages(int vehicleId);
@@ -33,38 +35,74 @@ namespace GPSTracking.Service
 
         #endregion
 
+    
+        Title GeteDefaultTitle(int id);
+        SecretQuestion GeteDefaultSecretQuestion(int id);
     }
 
 
 
-    public class OwnerService : BaseService, IOwnerService
+    public class OwnerService : IOwnerService
     {
-        public OwnerService(ICatalog catalog)
-            :base(catalog)
-        {}
+        private readonly IRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
+
+        public OwnerService(IRepository repository, IUnitOfWork unitOfWork)
+        {
+            _repository = repository;
+            _unitOfWork = unitOfWork;
+        }
      
-
-        public Vehicle GetVehicle(string ownerId, int id)
+        public Vehicle GetVehicle(int ownerId, int id)
         {
-           return _catalog.VehicleRepo.Single(m => (m.OwnerId == ownerId && m.Id == id));
+            return _repository.Single<Vehicle>(m => m.OwnerId ==ownerId&& m.Id == id);
         }
 
-        public List<Vehicle> GetVehicles(string ownerId)
+        public VehicleOwner GetOwner(int id)
         {
-            return _catalog.VehicleRepo.All().Where(m => (m.OwnerId == ownerId)).ToList();
+            return _repository.Single<VehicleOwner>(m => m.UserId == id);
+        }
+        public List<Vehicle> GetVehicles(int ownerId)
+        {
+            return _repository.All<Vehicle>().Where(m => (m.OwnerId == ownerId && m.IsActive)).ToList();
         }
 
+        public bool UpdateOwner(VehicleOwner owner)
+        {
+            try
+            {
+                var model = GetOwner(owner.Id);
+                if (model == null)
+                {
+                    _repository.Add(owner);
+                }
+                else
+                {
+                    owner.ModifiedDate = DateTime.Now;
+                    _repository.Update<VehicleOwner>(owner);
+                }
+
+                _unitOfWork.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+      
+            return true;
+        }
         public bool AddUpdateVechile(Vehicle vehicle)
         {
             var model = GetVehicle(vehicle.OwnerId, vehicle.Id);
             if (model == null) 
             {
                 vehicle.CreatedDate = DateTime.Now;
-               _catalog.VehicleRepo.Add(vehicle); 
+                _repository.Add(vehicle); 
             }
             else
             {
-                _catalog.VehicleRepo.Update(vehicle);
+                _repository.Update<Vehicle>(vehicle);
                 //model.UpdatedDate = DateTime.Now;
                 //model.BrandId = vehicle.BrandId;
                 //model.CategoryId = vehicle.CategoryId;
@@ -95,28 +133,27 @@ namespace GPSTracking.Service
                 //model.TypeId = vehicle.TypeId;
                 //model.VehicleNo = vehicle.VehicleNo;
             }
-            _catalog.UOW.Save();
+            _unitOfWork.Commit();
 
             return true;
         }
 
 
-
         public IEnumerable<VehicleImage> GetImages(int vehicleId)
         {
-            return _catalog.VehicleImageRepo.All().Where(m => (m.VehicleId == vehicleId));
+            return _repository.All<VehicleImage>().Where(m => (m.VehicleId == vehicleId));
         }
 
         public VehicleImage GetImage(int imageId)
         {
-            return _catalog.VehicleImageRepo.Single(m => (m.Id == imageId));
+            return _repository.Single<VehicleImage>(m => (m.Id == imageId));
         }
 
         public bool AddImage(VehicleImage model)
         {
             if (model == null) { return false; }
-            _catalog.VehicleImageRepo.Add(model);
-            _catalog.UOW.Save();
+            _repository.Add(model);
+            _unitOfWork.Commit();
             return true;
         }
 
@@ -125,27 +162,27 @@ namespace GPSTracking.Service
             var dbmodel = GetImage(imageId);
             if (dbmodel == null) { return false; }
 
-            _catalog.VehicleImageRepo.Delete(dbmodel);
-            _catalog.UOW.Save();
+            _repository.Delete(dbmodel);
+            _unitOfWork.Commit();
             return true;
         }
 
 
         public IEnumerable<VehicleDocument> GetDocs(int vehicleId)
         {
-            return _catalog.VehicleDocumentRepo.All().Where(m => (m.VehicleId == vehicleId));
+            return _repository.All<VehicleDocument>().Where(m => (m.VehicleId == vehicleId));
         }
 
         public VehicleDocument GetDoc(int docId)
         {
-            return _catalog.VehicleDocumentRepo.Single(m => (m.Id == docId));
+            return _repository.Single<VehicleDocument>(m => (m.Id == docId));
         }
 
         public bool AddDoc(VehicleDocument model)
         {
             if (model == null) { return false; }
-            _catalog.VehicleDocumentRepo.Add(model);
-            _catalog.UOW.Save();
+            _repository.Add(model);
+            _unitOfWork.Commit();
             return true;
         }
 
@@ -154,12 +191,17 @@ namespace GPSTracking.Service
             var dbmodel = GetDoc(docId);
             if (dbmodel == null) { return false; }
 
-            _catalog.VehicleDocumentRepo.Delete(dbmodel);
-            _catalog.UOW.Save();
+            _repository.Delete(dbmodel);
+            _unitOfWork.Commit();
             return true;
         }
-
-
-
+        public Title GeteDefaultTitle(int id)
+        {
+            return _repository.Single<Title>(m => (m.Id == id));
+        }
+        public SecretQuestion GeteDefaultSecretQuestion(int id)
+        {
+            return _repository.Single<SecretQuestion>(m => (m.Id == id));
+        }
     }
 }

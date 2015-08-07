@@ -15,8 +15,10 @@ namespace GPSTracking.Domain.Entities
         public int Id { get; set; }
 
         [InverseProperty("Id")]
-        public string OwnerId { get; set; }
+        public int OwnerId { get; set; }
+        
         public string Name { get; set; }
+        public string Make { get; set; }
         public int LocationId { get; set; }
         public int TypeId { get; set; }
         public int ModelId { get; set; }
@@ -28,17 +30,19 @@ namespace GPSTracking.Domain.Entities
         public int TransmissionId { get; set; }
         public int InteriorColorId { get; set; }
         public int ExteriorColorId { get; set; }
-
-
+        
         public int Price { get; set; }
 
         public int Mileage { get; set; }
 
         public string EngCapacity { get; set; }
+        public string ChassisNo{ get; set; }
         public int MakeYear { get; set; }
         public int RegYear { get; set; }
         public string VehicleNo { get; set; }
         public string LicenseNo { get; set; }
+        public string InsuranceNo { get; set; }
+        public string InsuranceName { get; set; }
         public string RegistrationNo { get; set; }
         public string Description { get; set; }
         public string TrackingLink { get; set; }
@@ -49,14 +53,22 @@ namespace GPSTracking.Domain.Entities
         public bool IsActive { get; set; }
         public bool IsPaid { get; set; }
 
+        public bool SmsAlert { get; set; }
+        public bool EmailAlert { get; set; }
+
+        public DateTime InsuranceRenewalDate { get; set; }
+
+        public int InsuraneExpiredinYear { get; set; }
+        public int LicenseRenewalinYear { get; set; }
         public DateTime LicenseRenewalDate { get; set; }
+       
         public DateTime RegisteredDate { get; set; }
 
         public DateTime CreatedDate { get; set; }
         public DateTime? UpdatedDate { get; set; }
 
         [ForeignKey("OwnerId")]
-        public virtual Profile Owner { get; set; }
+        public virtual VehicleOwner Owner { get; set; }
 
         [ForeignKey("LocationId")]
         public virtual Location Location { get; set; }
@@ -86,12 +98,12 @@ namespace GPSTracking.Domain.Entities
 
         public virtual ICollection<VehicleImage> VehicleImages { get; set; }
         public virtual ICollection<VehicleVideo> VehicleVideos { get; set; }
-
+        public virtual ICollection<VehicleFeature> VehicleFeatures { get; set; }
 
         public Vehicle()
         {
             RegisteredDate = DateTime.Now;
-            LicenseRenewalDate = DateTime.Now;
+            LicenseRenewalDate = DateTime.Now.AddDays(365);
             CreatedDate = DateTime.Now;
         }
 
@@ -144,4 +156,27 @@ namespace GPSTracking.Domain.Entities
         public virtual Vehicle Vehicle { get; set; }
 
     }
+
+    public class Feature
+    {
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+        public string Name { get;set; }
+    }
+
+    public class VehicleFeature
+    {
+         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        public int Id { get; set; }
+         public int VehicleId { get; set; }
+         public int FeatureId { get; set; }
+        [ForeignKey("VehicleId")]
+        public virtual Vehicle Vehicle { get; set; }
+
+        [ForeignKey("FeatureId")]
+        public virtual Feature Feature { get; set; }
+    }
+   
 }

@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿
+using System;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
+using System.Collections.Generic;
 
 namespace GPSTracking.Domain.Repository
 {
-    public interface IRepository<TEntity> : IDisposable 
-        where TEntity : class, new()
+    public interface IRepository : IDisposable
     {
-        void Add(TEntity item);
-        void Add(IEnumerable<TEntity> items);
-        void Update(TEntity item);
-        void Delete(Expression<Func<TEntity, bool>> expression);
-        void Delete(TEntity item);
-        void DeleteAll();
-        TEntity Single(Expression<Func<TEntity, bool>> expression);
-        System.Linq.IQueryable<TEntity> All();
+        void Add<T>(T item) where T : class, new();
+        void Add<T>(IEnumerable<T> items) where T : class, new();
+        void Update<T>(T item) where T : class, new();
+        void Delete<T>(Expression<Func<T, bool>> expression) where T : class, new();
+        void Delete<T>(T item) where T : class, new();
+        void DeleteAll<T>() where T : class, new();
+        T Single<T>(Expression<Func<T, bool>> expression) where T : class, new();
+        System.Linq.IQueryable<T> All<T>() where T : class, new();
+        
     }
 }

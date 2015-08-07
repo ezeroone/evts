@@ -39,6 +39,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Castle.Core">
+      <HintPath>..\packages\Castle.Core.3.3.3\lib\net45\Castle.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Facilities.Logging">
+      <HintPath>..\packages\Castle.LoggingFacility.3.3.0\lib\net45\Castle.Facilities.Logging.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Services.Logging.Log4netIntegration">
+      <HintPath>..\packages\Castle.Core-log4net.3.3.3\lib\net45\Castle.Services.Logging.Log4netIntegration.dll</HintPath>
+    </Reference>
+    <Reference Include="Castle.Windsor">
+      <HintPath>..\packages\Castle.Windsor.3.3.0\lib\net45\Castle.Windsor.dll</HintPath>
+    </Reference>
+    <Reference Include="CloudinaryDotNet">
+      <HintPath>..\packages\CloudinaryDotNet.1.0.22\lib\net40\CloudinaryDotNet.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
@@ -47,20 +62,46 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\log4net.1.2.10\lib\2.0\log4net.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
     <Reference Include="Ninject">
-      <HintPath>..\packages\Ninject.3.2.3-unstable-001\lib\net45-full\Ninject.dll</HintPath>
+      <HintPath>..\packages\Ninject.3.2.3-unstable-012\lib\net45-full\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="Ninject.Web.Common">
-      <HintPath>..\packages\Ninject.Web.Common.3.2.2.0\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+      <HintPath>..\packages\Ninject.Web.Common.3.2.4-unstable-001\lib\net45-full\Ninject.Web.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject.Web.Mvc">
+      <HintPath>..\packages\Ninject.MVC5.3.2.1.0\lib\net45-full\Ninject.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -131,6 +172,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
+    <Reference Include="WebActivatorEx">
+      <HintPath>..\packages\WebActivatorEx.2.0.6\lib\net40\WebActivatorEx.dll</HintPath>
+    </Reference>
     <Reference Include="WebGrease">
       <Private>True</Private>
       <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
@@ -141,29 +185,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Microsoft.AspNet.Identity.Owin">
-      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.1.0.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
-    </Reference>
     <Reference Include="Owin">
       <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin">
-      <HintPath>..\packages\Microsoft.Owin.2.0.0\lib\net45\Microsoft.Owin.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Host.SystemWeb">
       <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.2.0.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Owin.Security">
-      <HintPath>..\packages\Microsoft.Owin.Security.2.0.0\lib\net45\Microsoft.Owin.Security.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.Owin.Security.Facebook">
       <HintPath>..\packages\Microsoft.Owin.Security.Facebook.2.0.0\lib\net45\Microsoft.Owin.Security.Facebook.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.Cookies">
-      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.2.0.0\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Owin.Security.OAuth">
-      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.2.0.0\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.Owin.Security.Google">
       <HintPath>..\packages\Microsoft.Owin.Security.Google.2.0.0\lib\net45\Microsoft.Owin.Security.Google.dll</HintPath>
@@ -178,9 +207,15 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\NinjectWebCommon.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="CloudinaryService.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\IoTController.cs" />
+    <Compile Include="Controllers\OwnerController.cs" />
     <Compile Include="Controllers\VehicleController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Core\Enums\ResponseStatus.cs" />
@@ -192,47 +227,497 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\ControllersInstaller.cs" />
+    <Compile Include="Infrastructure\Helpers\HtmlHelperExtensions.cs" />
+    <Compile Include="Infrastructure\LoggerInstaller.cs" />
+    <Compile Include="Infrastructure\RepositoriesInstaller.cs" />
+    <Compile Include="Infrastructure\WindsorControllerFactory.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\HeaderViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ResponseViewModel.cs" />
     <Compile Include="Models\VehicleViewModel.cs" />
     <Compile Include="NinjectControllerFactory.cs" />
-    <Compile Include="NinjectWebCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="WindsorContainerWrapper.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap.css" />
-    <Content Include="Content\bootstrap.min.css" />
-    <Content Include="Content\fancybox\fancy_close.png" />
-    <Content Include="Content\fancybox\fancy_loading.png" />
-    <Content Include="Content\fancybox\fancy_nav_left.png" />
-    <Content Include="Content\fancybox\fancy_nav_right.png" />
-    <Content Include="Content\fancybox\fancy_shadow_e.png" />
-    <Content Include="Content\fancybox\fancy_shadow_n.png" />
-    <Content Include="Content\fancybox\fancy_shadow_ne.png" />
-    <Content Include="Content\fancybox\fancy_shadow_nw.png" />
-    <Content Include="Content\fancybox\fancy_shadow_s.png" />
-    <Content Include="Content\fancybox\fancy_shadow_se.png" />
-    <Content Include="Content\fancybox\fancy_shadow_sw.png" />
-    <Content Include="Content\fancybox\fancy_shadow_w.png" />
-    <Content Include="Content\fancybox\fancy_title_left.png" />
-    <Content Include="Content\fancybox\fancy_title_main.png" />
-    <Content Include="Content\fancybox\fancy_title_over.png" />
-    <Content Include="Content\fancybox\fancy_title_right.png" />
-    <Content Include="Content\font-awesome.css" />
-    <Content Include="Content\font\icomoon.svg" />
-    <Content Include="Content\icomoon.css" />
-    <Content Include="Content\jquery.fancybox-1.3.4.css" />
-    <Content Include="Content\responsive.css" />
-    <Content Include="Content\revslider.css" />
-    <Content Include="Content\style.css" />
+    <Content Include="autostars\404.html" />
+    <Content Include="autostars\about-html.html" />
+    <Content Include="autostars\about.html" />
+    <Content Include="autostars\add-listing-form.html" />
+    <Content Include="autostars\add-listing-pricing.html" />
+    <Content Include="autostars\banner-slider.html" />
+    <Content Include="autostars\blog-masonry.html" />
+    <Content Include="autostars\blog.html" />
+    <Content Include="autostars\colors\color1.css" />
+    <Content Include="autostars\contact.html" />
+    <Content Include="autostars\css\animations.css" />
+    <Content Include="autostars\css\bootstrap-theme.css" />
+    <Content Include="autostars\css\bootstrap.css" />
+    <Content Include="autostars\css\custom.css" />
+    <Content Include="autostars\css\extralayers.css" />
+    <Content Include="autostars\css\font-awesome.css" />
+    <Content Include="autostars\css\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="autostars\css\fonts\outlined-iconset.svg" />
+    <Content Include="autostars\css\line-icons.css" />
+    <Content Include="autostars\css\style.css" />
+    <Content Include="autostars\dealer-prosite.html" />
+    <Content Include="autostars\dealer-search-results.html" />
+    <Content Include="autostars\dealer-search.html" />
+    <Content Include="autostars\dealers-search-results.html" />
+    <Content Include="autostars\dealers-search.html" />
+    <Content Include="autostars\gallery-2cols-details.html" />
+    <Content Include="autostars\gallery-2cols.html" />
+    <Content Include="autostars\gallery-3cols-details.html" />
+    <Content Include="autostars\gallery-3cols.html" />
+    <Content Include="autostars\gallery-4cols-details.html" />
+    <Content Include="autostars\gallery-4cols.html" />
+    <Content Include="autostars\header-v2.html" />
+    <Content Include="autostars\header-v3.html" />
+    <Content Include="autostars\header-v4.html" />
+    <Content Include="autostars\hero-carousel.html" />
+    <Content Include="autostars\images\assets\wink.png" />
+    <Content Include="autostars\images\assets\wink.svg" />
+    <Content Include="autostars\images\body-types\convertible.png" />
+    <Content Include="autostars\images\body-types\coupe.png" />
+    <Content Include="autostars\images\body-types\crossover.png" />
+    <Content Include="autostars\images\body-types\minicar.png" />
+    <Content Include="autostars\images\body-types\minivan.png" />
+    <Content Include="autostars\images\body-types\sedan.png" />
+    <Content Include="autostars\images\body-types\suv.png" />
+    <Content Include="autostars\images\body-types\wagon.png" />
+    <Content Include="autostars\images\car1-b.jpg" />
+    <Content Include="autostars\images\car1-in.jpg" />
+    <Content Include="autostars\images\car1.jpg" />
+    <Content Include="autostars\images\car2-in.jpg" />
+    <Content Include="autostars\images\car2.jpg" />
+    <Content Include="autostars\images\car3-in.jpg" />
+    <Content Include="autostars\images\car3.jpg" />
+    <Content Include="autostars\images\car4-in.jpg" />
+    <Content Include="autostars\images\car4.jpg" />
+    <Content Include="autostars\images\car5.jpg" />
+    <Content Include="autostars\images\car6.jpg" />
+    <Content Include="autostars\images\checkers.png" />
+    <Content Include="autostars\images\Ford-Territory.jpg" />
+    <Content Include="autostars\images\header_dealer.jpg" />
+    <Content Include="autostars\images\img_booking.jpg" />
+    <Content Include="autostars\images\img_dealer1.png" />
+    <Content Include="autostars\images\img_dealer2.png" />
+    <Content Include="autostars\images\img_dealer3.png" />
+    <Content Include="autostars\images\img_dealer4.png" />
+    <Content Include="autostars\images\img_joinus.jpg" />
+    <Content Include="autostars\images\img_service.jpg" />
+    <Content Include="autostars\images\loader.gif" />
+    <Content Include="autostars\images\logo.png" />
+    <Content Include="autostars\images\logo_audi.png" />
+    <Content Include="autostars\images\logo_bmw.png" />
+    <Content Include="autostars\images\logo_ferrari.png" />
+    <Content Include="autostars\images\logo_ford.png" />
+    <Content Include="autostars\images\logo_mazda.png" />
+    <Content Include="autostars\images\logo_mercedes.png" />
+    <Content Include="autostars\images\logo_nissan.png" />
+    <Content Include="autostars\images\logo_toyota.png" />
+    <Content Include="autostars\images\logo_vw.png" />
+    <Content Include="autostars\images\page_header2.jpg" />
+    <Content Include="autostars\images\page_header3.jpg" />
+    <Content Include="autostars\images\page_header4.jpg" />
+    <Content Include="autostars\images\Pajero.jpg" />
+    <Content Include="autostars\images\pattern.png" />
+    <Content Include="autostars\images\post1.jpg" />
+    <Content Include="autostars\images\post2.jpg" />
+    <Content Include="autostars\images\post3.jpg" />
+    <Content Include="autostars\images\post4.jpg" />
+    <Content Include="autostars\images\post5.jpg" />
+    <Content Include="autostars\images\post6.jpg" />
+    <Content Include="autostars\images\postimg.jpg" />
+    <Content Include="autostars\images\slide2.jpg" />
+    <Content Include="autostars\images\slide3.jpg" />
+    <Content Include="autostars\images\slide4.jpg" />
+    <Content Include="autostars\images\team1.jpg" />
+    <Content Include="autostars\images\team2.jpg" />
+    <Content Include="autostars\images\team3.jpg" />
+    <Content Include="autostars\images\Toyota-Camry.jpg" />
+    <Content Include="autostars\images\user1.jpg" />
+    <Content Include="autostars\images\user2.jpg" />
+    <Content Include="autostars\images\user3.jpg" />
+    <Content Include="autostars\images\vin_locations.png" />
+    <Content Include="autostars\index-2.html" />
+    <Content Include="autostars\index-revslider.html" />
+    <Content Include="autostars\index.html" />
+    <Content Include="autostars\index2.html" />
+    <Content Include="autostars\index3.html" />
+    <Content Include="autostars\joinus.html" />
+    <Content Include="autostars\js\bootstrap.js" />
+    <Content Include="autostars\js\helper-plugins.js" />
+    <Content Include="autostars\js\init.js" />
+    <Content Include="autostars\js\jquery-2.0.0.min.js" />
+    <Content Include="autostars\js\modernizr.js" />
+    <Content Include="autostars\js\ui-plugins.js" />
+    <Content Include="autostars\js\waypoints.js" />
+    <Content Include="autostars\results-grid.html" />
+    <Content Include="autostars\results-list.html" />
+    <Content Include="autostars\results.grid.html" />
+    <Content Include="autostars\results.html" />
+    <Content Include="autostars\results.list.html" />
+    <Content Include="autostars\search-below-slider.html" />
+    <Content Include="autostars\search-over-slider.html" />
+    <Content Include="autostars\shortcodes.html" />
+    <Content Include="autostars\single-post-html.html" />
+    <Content Include="autostars\single-post-review.html" />
+    <Content Include="autostars\single-post.html" />
+    <Content Include="autostars\single-review-post.html" />
+    <Content Include="autostars\style-switcher\backgrounds\images\img1-thumb.png" />
+    <Content Include="autostars\style-switcher\backgrounds\images\img2-thumb.png" />
+    <Content Include="autostars\style-switcher\backgrounds\images\img3-thumb.png" />
+    <Content Include="autostars\style-switcher\backgrounds\images\img4-thumb.png" />
+    <Content Include="autostars\style-switcher\backgrounds\images\img5-thumb.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt1.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt10.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt11.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt12.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt13.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt14.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt15.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt16.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt17.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt18.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt19.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt2.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt20.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt21.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt22.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt23.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt24.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt25.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt26.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt27.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt28.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt29.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt3.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt30.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt4.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt5.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt6.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt7.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt8.png" />
+    <Content Include="autostars\style-switcher\backgrounds\patternst\ptt9.png" />
+    <Content Include="autostars\style-switcher\css\style-switcher.css" />
+    <Content Include="autostars\style-switcher\js\jquery_cookie.js" />
+    <Content Include="autostars\style-switcher\js\script.js" />
+    <Content Include="autostars\typography.html" />
+    <Content Include="autostars\user-dashboard-manage-ads.html" />
+    <Content Include="autostars\user-dashboard-profile.html" />
+    <Content Include="autostars\user-dashboard-saved-cars.html" />
+    <Content Include="autostars\user-dashboard-saved-searches.html" />
+    <Content Include="autostars\user-dashboard-settings.html" />
+    <Content Include="autostars\user-dashboard.html" />
+    <Content Include="autostars\vehicle-comparision.html" />
+    <Content Include="autostars\vehicle-details.html" />
+    <Content Include="autostars\vendor\flexslider\js\jquery.flexslider.js" />
+    <Content Include="autostars\vendor\owl-carousel\css\grabbing.html" />
+    <Content Include="autostars\vendor\owl-carousel\css\owl.carousel.css" />
+    <Content Include="autostars\vendor\owl-carousel\css\owl.theme.css" />
+    <Content Include="autostars\vendor\owl-carousel\images\AjaxLoader.html" />
+    <Content Include="autostars\vendor\owl-carousel\js\owl.carousel.min.js" />
+    <Content Include="autostars\vendor\password-checker.js" />
+    <Content Include="autostars\vendor\prettyphoto\css\prettyPhoto.css" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_rounded\btnNext.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_rounded\btnPrevious.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_rounded\contentPattern.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_rounded\loader.gif" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_rounded\sprite.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_square\btnNext.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_square\btnPrevious.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_square\loader.gif" />
+    <Content Include="autostars\vendor\prettyphoto\images\dark_square\sprite.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\default\default_thumb.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\default\loader.gif" />
+    <Content Include="autostars\vendor\prettyphoto\images\default\sprite.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\default\sprite_next.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\default\sprite_prev.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\default\sprite_x.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\default\sprite_y.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\btnNext.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\btnPrevious.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\contentPatternBottom.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\contentPatternLeft.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\contentPatternRight.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\contentPatternTop.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\default_thumbnail.gif" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\loader.gif" />
+    <Content Include="autostars\vendor\prettyphoto\images\facebook\sprite.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\light_rounded\btnNext.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\light_rounded\btnPrevious.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\light_rounded\loader.gif" />
+    <Content Include="autostars\vendor\prettyphoto\images\light_rounded\sprite.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\light_square\btnNext.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\light_square\btnPrevious.png" />
+    <Content Include="autostars\vendor\prettyphoto\images\light_square\sprite.png" />
+    <Content Include="autostars\vendor\prettyphoto\js\prettyphoto.js" />
+    <Content Include="autostars\vendor\revslider\assets\arrowleft.png" />
+    <Content Include="autostars\vendor\revslider\assets\arrowright.png" />
+    <Content Include="autostars\vendor\revslider\assets\arrow_left.png" />
+    <Content Include="autostars\vendor\revslider\assets\arrow_left2.png" />
+    <Content Include="autostars\vendor\revslider\assets\arrow_right.png" />
+    <Content Include="autostars\vendor\revslider\assets\arrow_right2.png" />
+    <Content Include="autostars\vendor\revslider\assets\boxed_bgtile.png" />
+    <Content Include="autostars\vendor\revslider\assets\bullet.png" />
+    <Content Include="autostars\vendor\revslider\assets\bullets.png" />
+    <Content Include="autostars\vendor\revslider\assets\bullets2.png" />
+    <Content Include="autostars\vendor\revslider\assets\bullet_boxed.png" />
+    <Content Include="autostars\vendor\revslider\assets\coloredbg.png" />
+    <Content Include="autostars\vendor\revslider\assets\gridtile.png" />
+    <Content Include="autostars\vendor\revslider\assets\gridtile_3x3.png" />
+    <Content Include="autostars\vendor\revslider\assets\gridtile_3x3_white.png" />
+    <Content Include="autostars\vendor\revslider\assets\gridtile_white.png" />
+    <Content Include="autostars\vendor\revslider\assets\large_left.png" />
+    <Content Include="autostars\vendor\revslider\assets\large_right.png" />
+    <Content Include="autostars\vendor\revslider\assets\loader.gif" />
+    <Content Include="autostars\vendor\revslider\assets\navigdots.png" />
+    <Content Include="autostars\vendor\revslider\assets\navigdots_bgtile.png" />
+    <Content Include="autostars\vendor\revslider\assets\shadow1.png" />
+    <Content Include="autostars\vendor\revslider\assets\shadow2.png" />
+    <Content Include="autostars\vendor\revslider\assets\shadow3.png" />
+    <Content Include="autostars\vendor\revslider\assets\small_left.png" />
+    <Content Include="autostars\vendor\revslider\assets\small_left_boxed.png" />
+    <Content Include="autostars\vendor\revslider\assets\small_right.png" />
+    <Content Include="autostars\vendor\revslider\assets\small_right_boxed.png" />
+    <Content Include="autostars\vendor\revslider\assets\timer.png" />
+    <Content Include="autostars\vendor\revslider\css\settings.css" />
+    <Content Include="autostars\vendor\revslider\font\revicons90c6.svg" />
+    <Content Include="autostars\vendor\revslider\images\gradient\g30.png" />
+    <Content Include="autostars\vendor\revslider\images\gradient\g40.png" />
+    <Content Include="autostars\vendor\revslider\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="autostars\vendor\revslider\js\jquery.themepunch.tools.min.js" />
+    <Content Include="Content-old\bootstrap.css" />
+    <Content Include="Content-old\bootstrap.min.css" />
+    <Content Include="Content-old\fancybox\fancy_close.png" />
+    <Content Include="Content-old\fancybox\fancy_loading.png" />
+    <Content Include="Content-old\fancybox\fancy_nav_left.png" />
+    <Content Include="Content-old\fancybox\fancy_nav_right.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_e.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_n.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_ne.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_nw.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_s.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_se.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_sw.png" />
+    <Content Include="Content-old\fancybox\fancy_shadow_w.png" />
+    <Content Include="Content-old\fancybox\fancy_title_left.png" />
+    <Content Include="Content-old\fancybox\fancy_title_main.png" />
+    <Content Include="Content-old\fancybox\fancy_title_over.png" />
+    <Content Include="Content-old\fancybox\fancy_title_right.png" />
+    <Content Include="Content-old\font-awesome.css" />
+    <Content Include="Content-old\font\icomoon.svg" />
+    <Content Include="Content-old\icomoon.css" />
+    <Content Include="Content-old\jquery.fancybox-1.3.4.css" />
+    <Content Include="Content-old\responsive.css" />
+    <Content Include="Content-old\revslider.css" />
+    <Content Include="Content-old\style.css" />
+    <Content Include="Content\colors\color1.css" />
+    <Content Include="Content\css\animations.css" />
+    <Content Include="Content\css\bootstrap-theme.css" />
+    <Content Include="Content\css\bootstrap.css" />
+    <Content Include="Content\css\custom.css" />
+    <Content Include="Content\css\extralayers.css" />
+    <Content Include="Content\css\font-awesome.css" />
+    <Content Include="Content\css\fonts\fontawesome-webfonte0a5.svg" />
+    <Content Include="Content\css\fonts\outlined-iconset.svg" />
+    <Content Include="Content\css\line-icons.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\images\assets\wink.png" />
+    <Content Include="Content\images\assets\wink.svg" />
+    <Content Include="Content\images\body-types\convertible.png" />
+    <Content Include="Content\images\body-types\coupe.png" />
+    <Content Include="Content\images\body-types\crossover.png" />
+    <Content Include="Content\images\body-types\minicar.png" />
+    <Content Include="Content\images\body-types\minivan.png" />
+    <Content Include="Content\images\body-types\sedan.png" />
+    <Content Include="Content\images\body-types\suv.png" />
+    <Content Include="Content\images\body-types\wagon.png" />
+    <Content Include="Content\images\car1-b.jpg" />
+    <Content Include="Content\images\car1-in.jpg" />
+    <Content Include="Content\images\car1.jpg" />
+    <Content Include="Content\images\car2-in.jpg" />
+    <Content Include="Content\images\car2.jpg" />
+    <Content Include="Content\images\car3-in.jpg" />
+    <Content Include="Content\images\car3.jpg" />
+    <Content Include="Content\images\car4-in.jpg" />
+    <Content Include="Content\images\car4.jpg" />
+    <Content Include="Content\images\car5.jpg" />
+    <Content Include="Content\images\car6.jpg" />
+    <Content Include="Content\images\checkers.png" />
+    <Content Include="Content\images\Ford-Territory.jpg" />
+    <Content Include="Content\images\header_dealer.jpg" />
+    <Content Include="Content\images\img_booking.jpg" />
+    <Content Include="Content\images\img_dealer1.png" />
+    <Content Include="Content\images\img_dealer2.png" />
+    <Content Include="Content\images\img_dealer3.png" />
+    <Content Include="Content\images\img_dealer4.png" />
+    <Content Include="Content\images\img_joinus.jpg" />
+    <Content Include="Content\images\img_service.jpg" />
+    <Content Include="Content\images\loader.gif" />
+    <Content Include="Content\images\logo.png" />
+    <Content Include="Content\images\logo_audi.png" />
+    <Content Include="Content\images\logo_bmw.png" />
+    <Content Include="Content\images\logo_ferrari.png" />
+    <Content Include="Content\images\logo_ford.png" />
+    <Content Include="Content\images\logo_mazda.png" />
+    <Content Include="Content\images\logo_mercedes.png" />
+    <Content Include="Content\images\logo_nissan.png" />
+    <Content Include="Content\images\logo_toyota.png" />
+    <Content Include="Content\images\logo_vw.png" />
+    <Content Include="Content\images\page_header2.jpg" />
+    <Content Include="Content\images\page_header3.jpg" />
+    <Content Include="Content\images\page_header4.jpg" />
+    <Content Include="Content\images\Pajero.jpg" />
+    <Content Include="Content\images\pattern.png" />
+    <Content Include="Content\images\post1.jpg" />
+    <Content Include="Content\images\post2.jpg" />
+    <Content Include="Content\images\post3.jpg" />
+    <Content Include="Content\images\post4.jpg" />
+    <Content Include="Content\images\post5.jpg" />
+    <Content Include="Content\images\post6.jpg" />
+    <Content Include="Content\images\postimg.jpg" />
+    <Content Include="Content\images\slide2.jpg" />
+    <Content Include="Content\images\slide3.jpg" />
+    <Content Include="Content\images\slide4.jpg" />
+    <Content Include="Content\images\team1.jpg" />
+    <Content Include="Content\images\team2.jpg" />
+    <Content Include="Content\images\team3.jpg" />
+    <Content Include="Content\images\Toyota-Camry.jpg" />
+    <Content Include="Content\images\user1.jpg" />
+    <Content Include="Content\images\user2.jpg" />
+    <Content Include="Content\images\user3.jpg" />
+    <Content Include="Content\images\vin_locations.png" />
+    <Content Include="Content\js\bootstrap.js" />
+    <Content Include="Content\js\helper-plugins.js" />
+    <Content Include="Content\js\init.js" />
+    <Content Include="Content\js\jquery-2.0.0.min.js" />
+    <Content Include="Content\js\modernizr.js" />
+    <Content Include="Content\js\ui-plugins.js" />
+    <Content Include="Content\js\waypoints.js" />
+    <Content Include="Content\style-switcher\backgrounds\images\img1-thumb.png" />
+    <Content Include="Content\style-switcher\backgrounds\images\img2-thumb.png" />
+    <Content Include="Content\style-switcher\backgrounds\images\img3-thumb.png" />
+    <Content Include="Content\style-switcher\backgrounds\images\img4-thumb.png" />
+    <Content Include="Content\style-switcher\backgrounds\images\img5-thumb.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt1.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt10.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt11.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt12.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt13.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt14.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt15.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt16.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt17.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt18.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt19.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt2.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt20.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt21.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt22.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt23.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt24.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt25.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt26.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt27.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt28.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt29.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt3.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt30.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt4.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt5.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt6.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt7.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt8.png" />
+    <Content Include="Content\style-switcher\backgrounds\patternst\ptt9.png" />
+    <Content Include="Content\style-switcher\css\style-switcher.css" />
+    <Content Include="Content\style-switcher\js\jquery_cookie.js" />
+    <Content Include="Content\style-switcher\js\script.js" />
+    <Content Include="Content\vendor\flexslider\js\jquery.flexslider.js" />
+    <Content Include="Content\vendor\owl-carousel\css\grabbing.html" />
+    <Content Include="Content\vendor\owl-carousel\css\owl.carousel.css" />
+    <Content Include="Content\vendor\owl-carousel\css\owl.theme.css" />
+    <Content Include="Content\vendor\owl-carousel\images\AjaxLoader.html" />
+    <Content Include="Content\vendor\owl-carousel\js\owl.carousel.min.js" />
+    <Content Include="Content\vendor\password-checker.js" />
+    <Content Include="Content\vendor\prettyphoto\css\prettyPhoto.css" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_rounded\btnNext.png" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_rounded\btnPrevious.png" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_rounded\contentPattern.png" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_rounded\loader.gif" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_rounded\sprite.png" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_square\btnNext.png" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_square\btnPrevious.png" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_square\loader.gif" />
+    <Content Include="Content\vendor\prettyphoto\images\dark_square\sprite.png" />
+    <Content Include="Content\vendor\prettyphoto\images\default\default_thumb.png" />
+    <Content Include="Content\vendor\prettyphoto\images\default\loader.gif" />
+    <Content Include="Content\vendor\prettyphoto\images\default\sprite.png" />
+    <Content Include="Content\vendor\prettyphoto\images\default\sprite_next.png" />
+    <Content Include="Content\vendor\prettyphoto\images\default\sprite_prev.png" />
+    <Content Include="Content\vendor\prettyphoto\images\default\sprite_x.png" />
+    <Content Include="Content\vendor\prettyphoto\images\default\sprite_y.png" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\btnNext.png" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\btnPrevious.png" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\contentPatternBottom.png" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\contentPatternLeft.png" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\contentPatternRight.png" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\contentPatternTop.png" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\default_thumbnail.gif" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\loader.gif" />
+    <Content Include="Content\vendor\prettyphoto\images\facebook\sprite.png" />
+    <Content Include="Content\vendor\prettyphoto\images\light_rounded\btnNext.png" />
+    <Content Include="Content\vendor\prettyphoto\images\light_rounded\btnPrevious.png" />
+    <Content Include="Content\vendor\prettyphoto\images\light_rounded\loader.gif" />
+    <Content Include="Content\vendor\prettyphoto\images\light_rounded\sprite.png" />
+    <Content Include="Content\vendor\prettyphoto\images\light_square\btnNext.png" />
+    <Content Include="Content\vendor\prettyphoto\images\light_square\btnPrevious.png" />
+    <Content Include="Content\vendor\prettyphoto\images\light_square\sprite.png" />
+    <Content Include="Content\vendor\prettyphoto\js\prettyphoto.js" />
+    <Content Include="Content\vendor\revslider\assets\arrowleft.png" />
+    <Content Include="Content\vendor\revslider\assets\arrowright.png" />
+    <Content Include="Content\vendor\revslider\assets\arrow_left.png" />
+    <Content Include="Content\vendor\revslider\assets\arrow_left2.png" />
+    <Content Include="Content\vendor\revslider\assets\arrow_right.png" />
+    <Content Include="Content\vendor\revslider\assets\arrow_right2.png" />
+    <Content Include="Content\vendor\revslider\assets\boxed_bgtile.png" />
+    <Content Include="Content\vendor\revslider\assets\bullet.png" />
+    <Content Include="Content\vendor\revslider\assets\bullets.png" />
+    <Content Include="Content\vendor\revslider\assets\bullets2.png" />
+    <Content Include="Content\vendor\revslider\assets\bullet_boxed.png" />
+    <Content Include="Content\vendor\revslider\assets\coloredbg.png" />
+    <Content Include="Content\vendor\revslider\assets\gridtile.png" />
+    <Content Include="Content\vendor\revslider\assets\gridtile_3x3.png" />
+    <Content Include="Content\vendor\revslider\assets\gridtile_3x3_white.png" />
+    <Content Include="Content\vendor\revslider\assets\gridtile_white.png" />
+    <Content Include="Content\vendor\revslider\assets\large_left.png" />
+    <Content Include="Content\vendor\revslider\assets\large_right.png" />
+    <Content Include="Content\vendor\revslider\assets\loader.gif" />
+    <Content Include="Content\vendor\revslider\assets\navigdots.png" />
+    <Content Include="Content\vendor\revslider\assets\navigdots_bgtile.png" />
+    <Content Include="Content\vendor\revslider\assets\shadow1.png" />
+    <Content Include="Content\vendor\revslider\assets\shadow2.png" />
+    <Content Include="Content\vendor\revslider\assets\shadow3.png" />
+    <Content Include="Content\vendor\revslider\assets\small_left.png" />
+    <Content Include="Content\vendor\revslider\assets\small_left_boxed.png" />
+    <Content Include="Content\vendor\revslider\assets\small_right.png" />
+    <Content Include="Content\vendor\revslider\assets\small_right_boxed.png" />
+    <Content Include="Content\vendor\revslider\assets\timer.png" />
+    <Content Include="Content\vendor\revslider\css\settings.css" />
+    <Content Include="Content\vendor\revslider\font\revicons90c6.svg" />
+    <Content Include="Content\vendor\revslider\images\gradient\g30.png" />
+    <Content Include="Content\vendor\revslider\images\gradient\g40.png" />
+    <Content Include="Content\vendor\revslider\js\jquery.themepunch.revolution.min.js" />
+    <Content Include="Content\vendor\revslider\js\jquery.themepunch.tools.min.js" />
     <Content Include="dialog\index.html" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
+    <Content Include="Content-old\Site.css" />
     <Content Include="images\911.jpg" />
     <Content Include="images\a1.jpg" />
     <Content Include="images\alex.jpg" />
@@ -353,14 +838,39 @@
     <Content Include="images\zonda.jpg" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <Content Include="Content\font\fontawesome-webfont.eot" />
-    <Content Include="Content\font\fontawesome-webfont.ttf" />
-    <Content Include="Content\font\fontawesome-webfont.woff" />
-    <Content Include="Content\font\fontawesome-webfontd41d.eot" />
-    <Content Include="Content\font\icomoon.eot" />
-    <Content Include="Content\font\icomoon.ttf" />
-    <Content Include="Content\font\icomoon.woff" />
-    <Content Include="Content\font\icomoond41d.eot" />
+    <Content Include="Content-old\font\fontawesome-webfont.eot" />
+    <Content Include="Content-old\font\fontawesome-webfont.ttf" />
+    <Content Include="Content-old\font\fontawesome-webfont.woff" />
+    <Content Include="Content-old\font\fontawesome-webfontd41d.eot" />
+    <Content Include="Content-old\font\icomoon.eot" />
+    <Content Include="Content-old\font\icomoon.ttf" />
+    <Content Include="Content-old\font\icomoon.woff" />
+    <Content Include="Content-old\font\icomoond41d.eot" />
+    <Content Include="autostars\css\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="autostars\css\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="autostars\css\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="autostars\css\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="autostars\css\fonts\fontawesome-webfonte0a5.woff2" />
+    <Content Include="autostars\css\fonts\outlined-iconset.eot" />
+    <Content Include="autostars\css\fonts\outlined-iconset.ttf" />
+    <Content Include="autostars\css\fonts\outlined-iconset.woff" />
+    <Content Include="autostars\css\fonts\outlined-iconsetd41d.eot" />
+    <Content Include="autostars\vendor\revslider\font\revicons90c6.eot" />
+    <Content Include="autostars\vendor\revslider\font\revicons90c6.ttf" />
+    <Content Include="autostars\vendor\revslider\font\revicons90c6.woff" />
+    <Content Include="Content\css\fonts\fontawesome-webfontd41d.eot" />
+    <Content Include="Content\css\fonts\fontawesome-webfonte0a5.eot" />
+    <Content Include="Content\css\fonts\fontawesome-webfonte0a5.ttf" />
+    <Content Include="Content\css\fonts\fontawesome-webfonte0a5.woff" />
+    <Content Include="Content\css\fonts\fontawesome-webfonte0a5.woff2" />
+    <Content Include="Content\css\fonts\outlined-iconset.eot" />
+    <Content Include="Content\css\fonts\outlined-iconset.ttf" />
+    <Content Include="Content\css\fonts\outlined-iconset.woff" />
+    <Content Include="Content\css\fonts\outlined-iconsetd41d.eot" />
+    <Content Include="Content\vendor\revslider\font\revicons90c6.eot" />
+    <Content Include="Content\vendor\revslider\font\revicons90c6.ttf" />
+    <Content Include="Content\vendor\revslider\font\revicons90c6.woff" />
+    <None Include="Properties\PublishProfiles\host.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\custom.js" />
     <Content Include="Scripts\fileUpload\jquery.fileupload-audio.js" />
@@ -392,7 +902,9 @@
     <Content Include="Scripts\Views\Home\AddVehicle\images.js" />
     <Content Include="Scripts\Views\Shared\LoginPartial.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -425,9 +937,27 @@
     <Content Include="Views\Vehicle\_VehicleImages.cshtml" />
     <Content Include="Views\Vehicle\AddEdit.cshtml" />
     <Content Include="Views\Account\_Login.cshtml" />
+    <Content Include="Views\Shared\_footer.cshtml" />
+    <Content Include="Views\Shared\_banner.cshtml" />
+    <Content Include="Views\Shared\_LayoutSub.cshtml" />
+    <Content Include="Views\Home\Pricing.cshtml" />
+    <Content Include="Views\Shared\_LayoutOwner.cshtml" />
+    <Content Include="Views\Home\Tracking.cshtml" />
+    <Content Include="Views\Owner\Index.cshtml" />
+    <Content Include="Views\Shared\_HeaderOwner.cshtml" />
+    <Content Include="Views\Shared\_HeaderAdmin.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_Loggeduser.cshtml" />
+    <Content Include="Views\Owner\_OwnerProfile.cshtml" />
+    <Content Include="Views\Owner\_Addvehicle.cshtml" />
+    <Content Include="Views\Owner\_AlertSetting.cshtml" />
+    <Content Include="Views\Owner\_ManageAds.cshtml" />
+    <Content Include="Views\Owner\_CreateAd.cshtml" />
+    <Content Include="Views\Owner\_Dashboard.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Utility\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -437,6 +967,10 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GPSTracking.Common\GPSTracking.Common.csproj">
+      <Project>{d7cd5a99-892a-4271-b6a9-52ae1eee89f6}</Project>
+      <Name>GPSTracking.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GPSTracking.Domain\GPSTracking.Domain.csproj">
       <Project>{6df61461-3c76-4171-b6e6-7bd155cdf2a4}</Project>
       <Name>GPSTracking.Domain</Name>

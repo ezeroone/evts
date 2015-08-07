@@ -23,50 +23,32 @@ namespace GPSTracking.Controllers
         private const string VEHICLE_IMAGE = IMAGE_ROOT + "/Vehicle{0}";
         private const string VEHICLE_DOCUMENT = DOCUMENT_ROOT + "/Vehicle{0}";
 
-
-        private readonly IServiceCatalog _catalogSvc;
-
-        public VehicleController(IServiceCatalog catalogSvc)
+        private readonly IOwnerService _ownerService;
+        private readonly ICommonService _commonService;
+        public VehicleController(IRepository repository,IUnitOfWork unitOfWork)
         {
-            _catalogSvc = catalogSvc;
+            _ownerService = new OwnerService(repository, unitOfWork);
+            _commonService = new CommonService(repository, unitOfWork);
         }
-
-
-
-        
-
-        //public ActionResult Index()
-        //{
-        //    if (User.Identity.IsAuthenticated)
-        //    {
-        //        var id= User.Identity.GetUserId();
-        //        var name = User.Identity.Name;
-        //        var role=User.IsInRole("Admin");
-        //    }
-
-        //    return View();
-        //}
-
-
 
         [Authorize]
         [HttpGet]
         public ActionResult AddEdit(int? id)
         {
-            var model = _catalogSvc.OwnerService.GetVehicle(User.Identity.GetUserId(), id ?? -1);
+            var model = _ownerService.GetVehicle(int.Parse(User.Identity.GetUserId()), id ?? -1);
             if (model == null) { model = new Vehicle(); }
 
             ViewBag.VM = new VehicleViewModel()
             {
-                AvailableLocations = _catalogSvc.CommonService.GetLocations().ToList(),
-                AvailableVechicleColors = _catalogSvc.CommonService.GetVechicleColors().ToList(),
-                AvailableVehicleBrands = _catalogSvc.CommonService.GetVehicleBrands().ToList(),
-                AvailableVehicleCategories = _catalogSvc.CommonService.GetVehicleCategories().ToList(),
-                AvailableVehicleDriveTypes = _catalogSvc.CommonService.GetVehicleDriveTypes().ToList(),
-                AvailableVehicleFuelTypes = _catalogSvc.CommonService.GetVehicleFuelTypes().ToList(),
-                AvailableVehicleModels = _catalogSvc.CommonService.GetVehicleModels().ToList(),
-                AvailableVehicleTransmisions = _catalogSvc.CommonService.GetVehicleTransmisions().ToList(),
-                AvailableVehicleTypes = _catalogSvc.CommonService.GetVehicleTypes().ToList()
+                AvailableLocations = _commonService.GetLocations().ToList(),
+                AvailableVechicleColors = _commonService.GetVechicleColors().ToList(),
+                AvailableVehicleBrands = _commonService.GetVehicleBrands().ToList(),
+                AvailableVehicleCategories = _commonService.GetVehicleCategories().ToList(),
+                AvailableVehicleDriveTypes = _commonService.GetVehicleDriveTypes().ToList(),
+                AvailableVehicleFuelTypes = _commonService.GetVehicleFuelTypes().ToList(),
+                AvailableVehicleModels = _commonService.GetVehicleModels().ToList(),
+                AvailableVehicleTransmisions = _commonService.GetVehicleTransmisions().ToList(),
+                AvailableVehicleTypes = _commonService.GetVehicleTypes().ToList()
             };
             return View(model);
         }
@@ -78,8 +60,8 @@ namespace GPSTracking.Controllers
         {
             if (ModelState.IsValid)
             {
-                model.OwnerId = User.Identity.GetUserId();
-                if (_catalogSvc.OwnerService.AddUpdateVechile(model))
+                model.OwnerId =int.Parse(User.Identity.GetUserId());
+                if (_ownerService.AddUpdateVechile(model))
                 {
                     return RedirectToAction("AddEdit", new { id = model.Id});
                 }
@@ -87,15 +69,15 @@ namespace GPSTracking.Controllers
 
             ViewBag.VM = new VehicleViewModel()
             {
-                AvailableLocations = _catalogSvc.CommonService.GetLocations().ToList(),
-                AvailableVechicleColors = _catalogSvc.CommonService.GetVechicleColors().ToList(),
-                AvailableVehicleBrands = _catalogSvc.CommonService.GetVehicleBrands().ToList(),
-                AvailableVehicleCategories = _catalogSvc.CommonService.GetVehicleCategories().ToList(),
-                AvailableVehicleDriveTypes = _catalogSvc.CommonService.GetVehicleDriveTypes().ToList(),
-                AvailableVehicleFuelTypes = _catalogSvc.CommonService.GetVehicleFuelTypes().ToList(),
-                AvailableVehicleModels = _catalogSvc.CommonService.GetVehicleModels().ToList(),
-                AvailableVehicleTransmisions = _catalogSvc.CommonService.GetVehicleTransmisions().ToList(),
-                AvailableVehicleTypes = _catalogSvc.CommonService.GetVehicleTypes().ToList()
+                AvailableLocations = _commonService.GetLocations().ToList(),
+                AvailableVechicleColors = _commonService.GetVechicleColors().ToList(),
+                AvailableVehicleBrands = _commonService.GetVehicleBrands().ToList(),
+                AvailableVehicleCategories = _commonService.GetVehicleCategories().ToList(),
+                AvailableVehicleDriveTypes = _commonService.GetVehicleDriveTypes().ToList(),
+                AvailableVehicleFuelTypes = _commonService.GetVehicleFuelTypes().ToList(),
+                AvailableVehicleModels = _commonService.GetVehicleModels().ToList(),
+                AvailableVehicleTransmisions = _commonService.GetVehicleTransmisions().ToList(),
+                AvailableVehicleTypes = _commonService.GetVehicleTypes().ToList()
             };
             return View(model);
         }
@@ -109,13 +91,12 @@ namespace GPSTracking.Controllers
         public ActionResult Images(int id)
         {
             var result = new VehicleImagesViewModel();
-
             try
             {
-                var vechile = _catalogSvc.OwnerService.GetVehicle(User.Identity.GetUserId(), id);
+                var vechile = _ownerService.GetVehicle(int.Parse(User.Identity.GetUserId()), id);
                 if (vechile == null) { throw new CatchableException("Vechicle not found."); }
 
-                var data = _catalogSvc.OwnerService.GetImages(id).ToList();
+                var data = _ownerService.GetImages(id).ToList();
                 var imagePath = string.Format(VEHICLE_IMAGE, id);
                 //imagePath = Server.MapPath(imagePath);
                 data.ForEach(delegate(VehicleImage vImg)
@@ -138,7 +119,7 @@ namespace GPSTracking.Controllers
 
             try
             {
-                var vechile = _catalogSvc.OwnerService.GetVehicle(User.Identity.GetUserId(), image.VehicleId);
+                var vechile = _ownerService.GetVehicle(int.Parse(User.Identity.GetUserId()), image.VehicleId);
                 if (vechile == null) { throw new CatchableException("Vechicle not found."); }
 
                 if (image.File == null || image.File.ContentLength <= 0) { throw new CatchableException("Image content can not be empty."); }
@@ -157,7 +138,7 @@ namespace GPSTracking.Controllers
                 image.File.SaveAs(imagePath);
 
                 var model = new VehicleImage() { VehicleId = image.VehicleId, IsDefaultImage = false, ImagePath = image.File.FileName };
-                if(!_catalogSvc.OwnerService.AddImage(model))
+                if(!_ownerService.AddImage(model))
                 {
                     throw new CatchableException("Image saving failed.");
                 }
@@ -175,7 +156,7 @@ namespace GPSTracking.Controllers
         public ActionResult RemoveImageAjax(int vId, int id)
         {
             var result = new ResponseViewModel();
-            if (!_catalogSvc.OwnerService.RemoveImage(id))
+            if (!_ownerService.RemoveImage(id))
             {
                 result.Status = "Error";
             }
@@ -198,10 +179,10 @@ namespace GPSTracking.Controllers
 
             try
             {
-                var vechile = _catalogSvc.OwnerService.GetVehicle(User.Identity.GetUserId(), id);
+                var vechile = _ownerService.GetVehicle(int.Parse(User.Identity.GetUserId()), id);
                 if (vechile == null) { throw new CatchableException("Vechicle not found."); }
 
-                var data = _catalogSvc.OwnerService.GetDocs(id).ToList();
+                var data = _ownerService.GetDocs(id).ToList();
                 data.ForEach(delegate(VehicleDocument file)
                 {
                     file.Path = string.Format("{0}/{1}", string.Format(VEHICLE_DOCUMENT, id), file.Path);
@@ -222,7 +203,7 @@ namespace GPSTracking.Controllers
 
             try
             {
-                var vechile = _catalogSvc.OwnerService.GetVehicle( User.Identity.GetUserId(), document.VehicleId);
+                var vechile = _ownerService.GetVehicle(int.Parse(User.Identity.GetUserId()), document.VehicleId);
                 if (vechile == null) { throw new CatchableException("Vechicle not found."); }
 
                 if (document.File == null || document.File.ContentLength <= 0) { throw new CatchableException("Image content can not be empty."); }
@@ -249,7 +230,7 @@ namespace GPSTracking.Controllers
                     FileName =  System.IO.Path.GetFileNameWithoutExtension(filepath)
                 };
 
-                if (!_catalogSvc.OwnerService.AddDoc(model))
+                if (!_ownerService.AddDoc(model))
                 {
                     throw new CatchableException("Document saving failed.");
                 }
@@ -267,7 +248,7 @@ namespace GPSTracking.Controllers
         public ActionResult RemoveDocumentAjax(int vId, int id)
         {
             var result = new ResponseViewModel();
-            if (!_catalogSvc.OwnerService.RemoveDoc(id))
+            if (!_ownerService.RemoveDoc(id))
             {
                 result.Status = "Error";
             }

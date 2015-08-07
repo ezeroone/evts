@@ -59,11 +59,10 @@
     <Compile Include="BaseService.cs" />
     <Compile Include="CommonService.cs" />
     <Compile Include="CreateNewProfileModel.cs" />
+    <Compile Include="EmailService.cs" />
     <Compile Include="ICommonService.cs" />
     <Compile Include="IOwnerSevice.cs" />
-    <Compile Include="IServiceCatalog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ServiceCatalog.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\GPSTracking.Domain\GPSTracking.Domain.csproj">

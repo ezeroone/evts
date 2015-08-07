@@ -1,0 +1,302 @@
+﻿@*<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="~/Content/images/favicon.png" type="image/x-icon">
+    <title>Welcome to i track my vehicle : we manage your vehicle</title>
+    <meta name="keywords" content="Motor, Vehicle, car, van, truck, tracking, gps">
+    <meta name="description" content="Welcome to itrackmyvehicle : all about your vehicle">
+    <meta name="author" content="eZeroOne technology">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+
+    <link rel="stylesheet" type="text/css" media="all" id="font_css" href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800,300">
+    <link rel="stylesheet" type="text/css" media="all" id="icon_fontawesome_css" href="~/Content/font-awesome.css">
+    <link rel="stylesheet" type="text/css" media="all" id="icon_icomoon_css" href="~/Content/icomoon.css">
+    <link rel="stylesheet" type="text/css" media="all" id="fancybox-css" href="~/Content/jquery.fancybox-1.3.4.css">
+    <link rel="stylesheet" type="text/css" media="all" id="rs-settings-css" href="~/Content/revslider.css">
+    <link rel="stylesheet" type="text/css" media="all" id="main_css" href="~/Content/style.css">
+    <link rel="stylesheet" type="text/css" media="all" id="responsive_css" href="~/Content/responsive.css">
+</head>
+<body>
+
+    <header>
+        <div id="top_toolbar" class="clearfix">
+            <div class="container">
+                @{
+                    Html.RenderAction("HeaderPartial", "Home");
+                }
+            </div>
+        </div>
+        <div id="header_main" class="clearfix">
+            <div class="container_12">
+                <div id="logo" class="grid_3">
+                    <img src="~/~/Content/images/logo.png" alt="Motor Logo">
+                </div>
+               <div>&nbsp;</div>
+            </div>
+        </div>
+    </header>
+    
+    @RenderBody()
+   
+    <footer>    
+        <div class="clearfix">
+            <div class="container_12">
+                <div id="logo_footer" class="grid_4">
+                    <img src="~/~/Content/images/logo_footer.png" alt="Motor Logo">
+                </div>
+                <nav class="grid_5">
+                    <ul id="footer_menu" class="clearfix">
+                        <li><a href="/Home/About">About</a></li>
+                        <li><a href="#">Service</a></li>
+                        <li><a href="#">Add vehicle</a></li>
+                        <li><a href="/Home/Contact">Contact</a></li>
+                    </ul>
+                </nav>
+                <div id="social_icons" class="grid_3">
+                    <a href="#" class="circle"><i class="icon-twitter"></i></a>
+                    <a href="#" class="circle"><i class="icon-linkedin"></i></a>
+                    <a href="#" class="circle"><i class="icon-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="~/Scripts/jquery-1.9.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.9.1.min.js"></script>
+
+    <script src="~/Scripts/superfish.js"></script>
+    <script src='~/Scripts/jquery.themepunch.plugins.min.js'></script>
+    <script src='~/Scripts/jquery.themepunch.revolution.min.js'></script>
+    <script src="~/Scripts/form_style.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery.placeholder.min.js"></script>
+    <script src="~/Scripts/jquery.fancybox-1.3.4.js"></script>
+    <script src="~/Scripts/jquery.gmap.min.js"></script>
+    <script src="~/Scripts/Views/Home/AddVehicle/~/Content/images.js"></script>
+    <script src="~/Scripts/Views/Shared/LoginPartial.js"></script>
+    <script src="~/Scripts/custom.js"></script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+        })(window, document, 'script', '../../www.google-analytics.com/analytics.js', 'ga');
+
+        //ga('create', 'UA-41374539-2', 'ab-themes.com');
+        // ga('send', 'pageview');
+
+    </script>
+    
+    @RenderSection("scripts", required: false)
+</body>
+</html>*@
+
+<!DOCTYPE html>
+<html class="no-js">
+<!-- Mirrored from preview.imithemes.com/autostars/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 May 2015 10:55:35 GMT -->
+<head>
+    <!-- Basic Page Needs
+      ================================================== -->
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="shortcut icon" href="~/Content/images/favicon.png" type="image/x-icon">
+    <title>Welcome to itrackmyvehicle.com : manage your vehicle info</title>
+    <meta name="keywords" content="Motor, Vehicle, car, van, truck, tracking, gps">
+    <meta name="description" content="Welcome to itrackmyvehicle : all about your vehicle">
+    <meta name="author" content="eZeroOne technology">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Mobile Specific Metas
+      ================================================== -->
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <!-- CSS
+      ================================================== -->
+    <link href="~/Content/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/bootstrap-theme.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/vendor/prettyphoto/css/prettyPhoto.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/vendor/owl-carousel/css/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/vendor/owl-carousel/css/owl.theme.css" rel="stylesheet" type="text/css">
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="css/ie.css" media="screen" /><![endif]-->
+    <link href="~/Content/css/custom.css" rel="stylesheet" type="text/css"><!-- CUSTOM STYLESHEET FOR STYLING -->
+    <!-- Color Style -->
+    <link class="alt" href="~/Content/colors/color1.css" rel="stylesheet" type="text/css">
+    <link href="~/Content/style-switcher/css/style-switcher.css" rel="stylesheet" type="text/css">
+    <!-- SCRIPTS
+      ================================================== -->
+    <script src="~/Content/js/modernizr.js"></script><!-- Modernizr -->
+</head>
+<body class="home">
+    <!--[if lt IE 7]>
+        <p class="chromeframe">You are using an outdated browser. <a href="http://browsehappy.com/">Upgrade your browser today</a> or <a href="http://www.google.com/chromeframe/?redirect=true">install Google Chrome Frame</a> to better experience this site.</p>
+    <![endif]-->
+    <div class="body">
+        <!-- Start Site Header -->
+        @Html.Partial("_HeaderPartial")
+        @*@Html.Partial("_banner")*@
+        <!-- Utiity Bar -->
+       
+        <!-- Start Body Content -->
+        <div class="main" role="main">
+            <div id="content" class="content full padding-b0">
+                <div class="container">
+                    
+                    <div class="row">
+                        @RenderBody()
+                    </div>
+                </div>
+                <div class="spacer-50"></div>
+                <div class="lgray-bg make-slider">
+                    <div class="container">
+                        <!-- Search by make -->
+                        <div class="row">
+                            <div class="col-md-3 col-sm-4">
+                                <h3>Companies we have </h3>
+                                <a href="#" class="btn btn-default btn-lg">Show me</a>
+                            </div>
+                            <div class="col-md-9 col-sm-8">
+                                <div class="row">
+                                    <ul class="owl-carousel" id="make-carousel" data-columns="5" data-autoplay="6000" data-pagination="no" data-arrows="no" data-single-item="no" data-items-desktop="5" data-items-desktop-small="4" data-items-tablet="3" data-items-mobile="3">
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_mercedes.png" alt=""></a></li>
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_vw.png" alt=""></a></li>
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_mazda.png" alt=""></a></li>
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_bmw.png" alt=""></a></li>
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_ford.png" alt=""></a></li>
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_toyota.png" alt=""></a></li>
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_ferrari.png" alt=""></a></li>
+                                        <li class="item"> <a href="results-grid.html"><img src="~/Content/images/logo_nissan.png" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End Body Content -->
+       
+        <!-- Start site footer -->
+        <footer class="site-footer">
+          @Html.Partial("_footer")
+        </footer>
+        <!-- End site footer -->
+        <a id="back-to-top"><i class="fa fa-angle-double-up"></i></a>
+    </div>
+    
+    @*@Html.Action("LoginPartial", "Account")*@
+
+    @*<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4>Login to your account</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                            <input type="text" class="form-control" placeholder="Username">
+                        </div>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-key"></i></span>
+                            <input type="password" class="form-control" placeholder="Password">
+                        </div>
+                        <input type="submit" class="btn btn-primary" value="Login">
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-block btn-facebook btn-social"><i class="fa fa-facebook"></i> Login with Facebook</button>
+                    <button type="button" class="btn btn-block btn-twitter btn-social"><i class="fa fa-twitter"></i> Login with Twitter</button>
+                </div>
+            </div>
+        </div>
+    </div>*@
+    <script src="~/Content/js/jquery-2.0.0.min.js"></script> <!-- Jquery Library Call -->
+    <script src="~/Content/vendor/prettyphoto/js/prettyphoto.js"></script> <!-- PrettyPhoto Plugin -->
+    <script src="~/Content/js/ui-plugins.js"></script> <!-- UI Plugins -->
+    <script src="~/Content/js/helper-plugins.js"></script> <!-- Helper Plugins -->
+    <script src="~/Content/vendor/owl-carousel/js/owl.carousel.min.js"></script> <!-- Owl Carousel -->
+    <script src="~/Content/vendor/password-checker.js"></script> <!-- Password Checker -->
+    <script src="~/Content/js/bootstrap.js"></script> <!-- UI -->
+    <script src="~/Content/js/init.js"></script> <!-- All Scripts -->
+    <script src="~/Content/vendor/flexslider/js/jquery.flexslider.js"></script> <!-- FlexSlider -->
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <script src="~/Content/style-switcher/js/jquery_cookie.js"></script>
+    <script src="~/Content/style-switcher/js/script.js"></script>
+    <!-- Style Switcher Start -->
+    @*<div class="styleswitcher visible-lg visible-md">
+        <div class="arrow-box"><a class="switch-button"><span class="fa fa-cogs fa-lg"></span></a> </div>
+        <h4>Color Skins</h4>
+        <ul class="color-scheme">
+            <li><a href="#" data-rel="~/Content/colors/color1.css" class="color1" title="color1"></a></li>
+            <li><a href="#" data-rel="~/Content/colors/color2.css" class="color2" title="color2"></a></li>
+            <li><a href="#" data-rel="~/Content/colors/color3.css" class="color3" title="color3"></a></li>
+            <li><a href="#" data-rel="~/Content/colors/color4.css" class="color4" title="color4"></a></li>
+            <li><a href="#" data-rel="~/Content/colors/color5.css" class="color5" title="color5"></a></li>
+            <li><a href="#" data-rel="~/Content/colors/color6.css" class="color6" title="color6"></a></li>
+            <li><a href="#" data-rel="~/Content/colors/color7.css" class="color7" title="color7"></a></li>
+            <li><a href="#" data-rel="~/Content/colors/color8.css" class="color8" title="color8"></a></li>
+            <li class="nomargin"><a href="#" data-rel="colors/color9.css" class="color9" title="color9"></a></li>
+            <li class="nomargin"><a href="#" data-rel="colors/color10.css" class="color10" title="color10"></a></li>
+            <li class="nomargin"><a href="#" data-rel="colors/color11.css" class="color11" title="color11"></a></li>
+            <li class="nomargin"><a href="#" data-rel="colors/color12.css" class="color12" title="color12"></a></li>
+        </ul>
+        <h4>Layout</h4>
+        <ul class="layouts">
+            <li class="wide-layout"><a href="#" title="Wide">Wide</a></li>
+            <li class="boxed-layout"><a href="#" title="Boxed">Boxed</a></li>
+        </ul>
+        <h4>Background Pattern</h4>
+        <ul class="background-selector">
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt1.png" data-nr="0" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt2.png" data-nr="1" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt3.png" data-nr="2" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt4.png" data-nr="3" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt5.png" data-nr="4" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt6.png" data-nr="5" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt7.png" data-nr="6" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt8.png" data-nr="7" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt9.png" data-nr="8" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt10.png" data-nr="9" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt11.png" data-nr="10" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt12.png" data-nr="11" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt13.png" data-nr="12" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt14.png" data-nr="13" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt15.png" data-nr="14" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt16.png" data-nr="15" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt17.png" data-nr="16" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt18.png" data-nr="17" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt19.png" data-nr="18" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt20.png" data-nr="19" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt21.png" data-nr="20" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt22.png" data-nr="21" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt23.png" data-nr="22" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt24.png" data-nr="23" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt25.png" data-nr="24" width="20" height="20"></li>
+            <li class="nomargin"><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt26.png" data-nr="25" width="20" height="20"></li>
+            <li class="nomargin"><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt27.png" data-nr="26" width="20" height="20"></li>
+            <li class="nomargin"><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt28.png" data-nr="27" width="20" height="20"></li>
+            <li class="nomargin"><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt29.png" data-nr="28" width="20" height="20"></li>
+            <li class="nomargin"><img alt="" src="~/Content/style-switcher/backgrounds/patternst/ptt30.png" data-nr="29" width="20" height="20"></li>
+        </ul>
+        <small>*only for boxed layout</small>
+        <h4>Background Image</h4>
+        <ul class="background-selector1">
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/~/Content/images/img1-thumb.png" data-nr="0" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/~/Content/images/img2-thumb.png" data-nr="1" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/~/Content/images/img3-thumb.png" data-nr="2" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/~/Content/images/img4-thumb.png" data-nr="3" width="20" height="20"></li>
+            <li><img alt="" src="~/Content/style-switcher/backgrounds/~/Content/images/img5-thumb.png" data-nr="4" width="20" height="20"></li>
+        </ul>
+        <small>*only for boxed layout</small>
+    </div>*@
+</body>
+<!-- Mirrored from preview.imithemes.com/autostars/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 16 May 2015 10:55:35 GMT -->
+</html>

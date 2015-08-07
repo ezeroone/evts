@@ -95,7 +95,7 @@ namespace GPSTracking.Models
             return new Profile()
             {
                 UserName = source.UserName,
-                FirstName = source.FirstName,
+                //FirstName = source.FirstName,
                 CountryId = source.CountryId,
                 CreatedDate = DateTime.Now,
                 ModifiedDate = DateTime.Now

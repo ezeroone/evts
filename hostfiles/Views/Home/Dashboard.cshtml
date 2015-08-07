@@ -1,0 +1,47 @@
+﻿@model List<GPSTracking.Models.VehicleListItem>
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<div class="container_12 clearfix">
+    <div class="grid_12 content">
+
+        @if (Model == null || Model.Count <= 0)
+        {
+
+        }
+        else
+        {
+
+
+            foreach (var item in Model)
+            {
+                var firstImgPath = item.Images.Any() ? item.Images.First().ImagePath : "";
+
+                <article class="box clearfix list_item">
+
+                    <div class="half left">
+                        <div class="half left">
+                            <div class="overlayed">
+                                <img alt="" src="@firstImgPath">
+                                <div class="overlay">
+                                    <span class="overlay-icon-left"><a href="/vehicle/addedit/@item.Data.Id"><i class="icomoon-link"></i></a></span>
+                                    <span class="overlay-icon-right"><a data-fancybox-group="group1" class="fancybox" href="@firstImgPath"><i class="icomoon-expand-2"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="half right">
+                            <h4>@item.Data.Name</h4>
+                        </div>
+                    </div>
+
+                    <div class="half right">
+                        <a class="button red span7 right" href="/vehicle/addedit/@item.Data.Id">Edit</a>
+                    </div>
+                </article>
+            }
+        }
+
+       
+    </div>
+</div>

@@ -20,7 +20,7 @@ namespace GPSTracking.Models
         public string Firstname { get; set; }
         public string Lastname { get; set; }
         public string Role { get; set; }
-
+        public string ImgUrl { get; set; }
         public string WelcomeName
         {
             get
@@ -40,7 +40,10 @@ namespace GPSTracking.Models
 
 
         public HeaderViewModel()
-        { }
+        {
+            this.Username = "Navaseelan";
+            this.Firstname = "Last Name";
+        }
 
 
         public HeaderViewModel(Profile userProfile, IList<string> userRoles)
@@ -49,8 +52,8 @@ namespace GPSTracking.Models
 
             this.Email = userProfile.Email;
             this.Username = userProfile.UserName;
-            this.Firstname = userProfile.FirstName;
-            this.Lastname = userProfile.LastName;
+            //this.Firstname = userProfile.FirstName;
+            //this.Lastname = userProfile.LastName;
 
             this.Role = (userRoles == null) ? "" 
                 : userRoles.Contains(RoleNames.ADMIN) ? RoleNames.ADMIN

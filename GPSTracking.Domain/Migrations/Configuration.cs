@@ -19,8 +19,6 @@ namespace GPSTracking.Domain.Migrations
         protected override void Seed(GPSTracking.Domain.GpsTrackingContext context)
         {
 
-
-
             context.Regions.AddOrUpdate(
                 new Region() { Id = 1, Name = "Africa" },
                 new Region()
@@ -113,40 +111,41 @@ new VehicleFuelType() { Id = 3, Name = "LPG" });
 
 
             //  This method will be called after migrating to the latest version.
-            var userManager = new UserManager<Profile>(new UserStore<Profile>(context));
-            var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
+            //var userManager = new UserManager<Profile>(new UserStore<Profile>(context));
+            //var roleManager = new RoleManager<IdentityRole>(new RoleStore<IdentityRole>(context));
 
-            // Adding Roles
-            if (!roleManager.RoleExists(RoleNames.ADMIN)) { roleManager.Create(new IdentityRole(RoleNames.ADMIN)); }
-            if (!roleManager.RoleExists(RoleNames.OWNER)) { roleManager.Create(new IdentityRole(RoleNames.OWNER)); }
+            var userManager = new ApplicationUserManager(new IdentityExtention.UserStoreIntPk(context));
+           //var roleManager = new RoleManager<IdentityExtention.RoleIntPk>(new IdentityExtention.RoleStoreIntPk<IdentityExtention.RoleIntPk>(context));
+
+
+           // //// Adding Roles
+           // if (!roleManager.RoleExists(RoleNames.ADMIN)) { roleManager.Create(new IdentityRole(RoleNames.ADMIN)); }
+           // if (!roleManager.RoleExists(RoleNames.OWNER)) { roleManager.Create(new IdentityRole(RoleNames.OWNER)); }
 
             // Adding Admin account
-            if (userManager.FindByEmail("admin@gpstracking.com") == null)
+            if (userManager.FindByEmail("admin@itrackmyvehicle.com") == null)
             {
                 var adminUser = new Profile()
                 {
-                    Email = "admin@gpstracking.com",
-                    FirstName = "Global Admin",
+                    Email = "admin@itrackmyvehicle.com",
                     CountryId = 1,
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now
                 };
-                userManager.Create(adminUser, "1qaz2wsx");
+                userManager.Create(adminUser, "1qaz!QAZ@");
                 userManager.AddToRole(adminUser.Id, RoleNames.ADMIN);
             }
 
-            if (userManager.FindByEmail("tester@gpstracking.com") == null)
+            if (userManager.FindByEmail("tester@itrackmyvehicle.com") == null)
             {
                 var adminUser = new Profile()
                 {
-                    Email = "tester@gpstracking.com",
-                    FirstName = "Test",
-                    LastName = "Owner",
-                    CountryId = 1,
+                    Email = "tester@itrackmyvehicle.com",
+                   CountryId = 1,
                     CreatedDate = DateTime.Now,
                     ModifiedDate = DateTime.Now
                 };
-                userManager.Create(adminUser, "1qaz2wsx");
+                userManager.Create(adminUser, "1qaz@WSX");
                 userManager.AddToRole(adminUser.Id, RoleNames.OWNER);
             }
 

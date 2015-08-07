@@ -1,9 +1,11 @@
-﻿using GPSTracking.Domain.Entities;
+﻿using GPSTracking.Domain;
+using GPSTracking.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
 
 namespace GPSTracking.Service
 {
@@ -20,5 +22,7 @@ namespace GPSTracking.Service
         IEnumerable<VehicleFuelType> GetVehicleFuelTypes();
         IEnumerable<VehicleDriveType> GetVehicleDriveTypes();
 
+        ApplicationUserManager UserManager();
+        //UserManager<Profile> UserManager { get; }
     }
 }

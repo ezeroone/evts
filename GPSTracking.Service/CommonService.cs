@@ -1,68 +1,94 @@
-﻿using GPSTracking.Domain.Entities;
+﻿using System.Data.Entity;
+using GPSTracking.Domain;
+using GPSTracking.Domain.Entities;
 using GPSTracking.Domain.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GPSTracking.Service
 {
-    public class CommonService : BaseService, ICommonService
+    public class CommonService : ICommonService
     {
 
-        public CommonService(ICatalog catalog)
-            :base(catalog)
-        { }
+        private readonly IRepository _repository;
+        private readonly IUnitOfWork _unitOfWork;
+        private readonly DbContext _context;
+       // protected UserManager<Profile> _userManager;
+        public CommonService(IRepository repository, IUnitOfWork unitOfWork)
+        {
+            _context = new GpsTrackingContext();
+            _repository = repository;
+            _unitOfWork = unitOfWork;
+        }
+
 
         public IEnumerable<Country> GetCountries()
         {
-           return _catalog.CountryRepo.All().ToList();
+            return _repository.All<Country>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VehicleType> GetVehicleTypes()
         {
-            return _catalog.VehicleTypeRepo.All().ToList();
+            return _repository.All<VehicleType>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VehicleCategory> GetVehicleCategories()
         {
-            return _catalog.VehicleCategoryRepo.All().ToList();
+            return _repository.All<VehicleCategory>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.Location> GetLocations()
         {
-            return _catalog.LocationRepo.All().ToList();
+            return _repository.All<Location>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VehicleBrand> GetVehicleBrands()
         {
-            return _catalog.VehicleBrandRepo.All().ToList();
+            return _repository.All<VehicleBrand>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VehicleModel> GetVehicleModels()
         {
-            return _catalog.VehicleModelRepo.All().ToList();
+            return _repository.All <VehicleModel>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VechicleColor> GetVechicleColors()
         {
-            return _catalog.VechicleColorRepo.All().ToList();
+            return _repository.All<VechicleColor>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VehicleTransmision> GetVehicleTransmisions()
         {
-            return _catalog.VehicleTransmisionRepo.All().ToList();
+            return _repository.All<VehicleTransmision>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VehicleFuelType> GetVehicleFuelTypes()
         {
-            return _catalog.VehicleFuelTypeRepo.All().ToList();
+            return _repository.All<VehicleFuelType>().AsEnumerable();
         }
 
         public IEnumerable<Domain.Entities.VehicleDriveType> GetVehicleDriveTypes()
         {
-            return _catalog.VehicleDriveTypeRepo.All().ToList();
+            return _repository.All<VehicleDriveType>().AsEnumerable();
         }
+
+        public ApplicationUserManager UserManager()
+        {
+            return new ApplicationUserManager(new IdentityExtention.UserStoreIntPk((GpsTrackingContext)_context));
+        }
+        //public UserManager<Profile> UserManager
+        //{
+        //    get
+        //    {
+        //        if (_userManager == null) { _userManager = new UserManager<Profile>(new UserStore<Profile>(_context)); }
+        //        return _userManager;
+        //    }
+        //}
+
     }
 }

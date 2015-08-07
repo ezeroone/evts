@@ -18,6 +18,10 @@ namespace GPSTracking
                 url: "{controller}/{action}/{id}",
                 defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
             );
+
+
+           // routes.MapRoute("owner-action", "owner/{action}/{id}", new { controller = "owner", action = "index" }, new { action = "(Index|OwnerProfile)" });
+           
         }
     }
 }
